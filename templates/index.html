@@ -2,10 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Метро</title>
+        <title>метро</title>
         <style>
             body {
                 margin: 0;
+                line-height: 16px;
             }
             .menu {
                 width: 20vw;
@@ -24,7 +25,7 @@
                 margin: 0;
                 border: 0;
                 border-radius: 15px;
-                background-color: #DCDCDC;
+                background-color: #f6f6f6;
             }
             .input_control2 {
                 position: relative;
@@ -36,14 +37,56 @@
                 margin: 0;
                 border: 0;
                 border-radius: 15px;
-                background-color: #DCDCDC;
+                background-color: #f6f6f6;
+            }
+            .button_menu {
+                position: relative;
+                width: 8vw;
+                height: 3vh;
+                background: #f6f6f6;
+                margin: 0;
+                border: 0;
+                border-radius: 15px;
+                left: 6vw;
+                top: 16vh;
+            }
+            .button_in_1 {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                background-image: url("https://static.vecteezy.com/system/resources/previews/000/593/413/original/vector-cancel-icon.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 0;
+                border: 0;
+                border-radius: 30px;
+                left: -1vw;
+                top: 11vh;
+            }
+            .button_in_2 {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                background-image: url("https://static.vecteezy.com/system/resources/previews/000/593/413/original/vector-cancel-icon.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 0;
+                border: 0;
+                border-radius: 30px;
+                left: -1vw;
+                top: 15vh;
             }
         </style>
     </head>
     <body>
-        <div class="menu">
-            <input class="input_control1" placeholder="откуда:">
-            <input class="input_control2" placeholder="куда:">
-        </div>
+        <form method="POST">
+            <div class="menu">
+                <input name="input1" id="input1" class="input_control1" type="text" placeholder="откуда:" value={{v1}}>
+                <input class="button_in_1" type="submit" value="" style="{{button_input_1}}">
+                <input name="input2" id="input2" class="input_control2" type="text" placeholder="куда:" value={{v2}}>
+                <input class="button_in_2" type="submit" value="" style="{{button_input_2}}">
+                <input class="button_menu" type="submit" value="маршрут">
+            </div>
+        </form>
     </body>
 </html>
