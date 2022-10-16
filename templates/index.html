@@ -76,6 +76,26 @@
                 left: -1vw;
                 top: 15vh;
             }
+            .point {
+                position: relative;
+                width: 15px;
+                height: 15px;
+                margin: 0;
+                border: 0;
+                border-radius: 30px;
+                left: 0.5vw;
+                top: -1vh;
+            }
+            .point2 {
+                position: relative;
+                width: 15px;
+                height: 15px;
+                margin: 0;
+                border: 0;
+                border-radius: 30px;
+                left: 0.5vw;
+                top: 6.25vh;
+            }
         </style>
     </head>
     <body>
@@ -86,6 +106,8 @@
                 <input name="input2" id="input2" class="input_control2" type="text" placeholder="куда:" value={{v2}}>
                 <input class="button_in_2" type="submit" value="" style="{{button_input_2}}">
                 <input class="button_menu" type="submit" value="маршрут">
+                <div class="point" style="background-color:{{point_color}}"></div>
+                <div class="point2" style="background-color:{{point_color2}}"></div>
             </div>
         </form>
     </body>
