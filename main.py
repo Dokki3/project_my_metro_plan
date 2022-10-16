@@ -18,6 +18,8 @@ def hello_world():
         input_1 = request.form['input1']
         input_2 = request.form['input2']
 
+        # кнопки сброса содержимых input
+
         if input_1 == '':
             button_input_1 = 'display:none'
         else:
@@ -27,16 +29,20 @@ def hello_world():
         else:
             button_input_2 = ''
 
+        # цвет точки у input1
+
         if input_1 in red:
             point_color = 'red'
         else:
             point_color = ''
 
-        # ---------------------------
+        # цвет точки у input2
         if input_2 in red:
             point_color2 = 'red'
         else:
             point_color2 = ''
+
+        # HTML код
 
         return render_template('index.html', v1=input_1, v2=input_2,
                                button_input_1=button_input_1, button_input_2=button_input_2,
