@@ -12,21 +12,12 @@ red = ['Бульвар Рокоссовского', 'Черкизовская', 
 
 @app.route("/", methods=['POST', 'GET'])
 def main():
-    if request.method == 'GET':
-        return render_template('index.html')
     if request.method == 'POST':
         input_1 = request.form['input1']
         input_2 = request.form['input2']
 
-        opt_red = []
-        for i in range(25):
-            opt_red.append("opacity: 1;")
-
         # маршрут
-        route = ['Комсомольская', 'Красные Ворота', 'Чистые пруды', 'Лубянка', ]
-        for i in range(len(opt_red)):
-            opt_red[i - 1] = "opacity: 0.4;"
-
+        route = []
 
         # кнопки сброса содержимых input
 
@@ -57,7 +48,9 @@ def main():
         return render_template('index.html', v1=input_1, v2=input_2,
                                button_input_1=button_input_1, button_input_2=button_input_2,
                                point_color=point_color, point_color2=point_color2,
-                               opt_red=opt_red)
+                               route=route)
+    if request.method == 'GET':
+        return render_template('index.html')
 
 
 if __name__ == '__main__':
