@@ -113,260 +113,678 @@
                 <div class="point" style="background-color:{{point_color}}"></div>
                 <div class="point2" style="background-color:{{point_color2}}"></div>
             </div>
+            <!-- lines -->
             <svg width="79vw" height="100vh" style="position:relative; left:20vw; bottom:100vh">
                 <!-- 5 -->
-                <path stroke="#894e35" stroke-width="8" d="M 820 329 A 365 365 0 0 0 677 317" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 824 331 A 365 365 0 0 0 677 317" stroke-linecap="butt" fill="none"></path>
                 <path stroke="#894e35" stroke-width="8" d="M 677 317 A 365 365 0 0 0 600 375" stroke-linecap="butt" fill="none"></path>
                 <path stroke="#894e35" stroke-width="8" d="M 600 375 A 365 365 0 0 0 569 442" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 569 442 A 365 365 0 0 0 568 509" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 568 509 A 365 365 0 0 0 611 595" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 611 595 A 365 365 0 0 0 675 639" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 675 639 A 365 365 0 0 0 793 641" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 793 641 A 365 365 0 0 0 862 595" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 569 442 A 365 365 0 0 0 571 522" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 571 522 A 365 365 0 0 0 611 595" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 611 595 A 365 365 0 0 0 677 639" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 677 639 A 365 365 0 0 0 797 639" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 797 639 A 365 365 0 0 0 862 595" stroke-linecap="butt" fill="none"></path>
                 <path stroke="#894e35" stroke-width="8" d="M 862 595 A 365 365 0 0 0 897 538" stroke-linecap="butt" fill="none"></path>
                 <path stroke="#894e35" stroke-width="8" d="M 897 538 A 365 365 0 0 0 907 460" stroke-linecap="butt" fill="none"></path>
-                <path stroke="#894e35" stroke-width="8" d="M 907 460 A 365 365 0 0 0 820 329" stroke-linecap="butt" fill="none"></path>
+                <path stroke="#894e35" stroke-width="8" d="M 907 460 A 365 365 0 0 0 824 331" stroke-linecap="butt" fill="none"></path>
                 <!-- 1 -->
-                {% if 'Прокшино' in route and 'Ольховая' in route or route == [] %}
+                {% if 'Ольховая' in route_ and 'Коммунарка' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="538" x2="564" y1="905" y2="922" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="538" x2="564" y1="905" y2="922" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Прокшино' in route and 'Ольховая' in route or route == [] %}
+                {% if 'Прокшино' in route_ and 'Ольховая' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="520" x2="538" y1="893" y2="905" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="520" x2="538" y1="893" y2="905" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Филатов Луг' in route and 'Прокшино' in route or route == [] %}
+                {% if 'Филатов Луг' in route_ and 'Прокшино' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="520" x2="494" y1="893" y2="876" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="520" x2="494" y1="893" y2="876" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Саларьево' in route and 'Филатов Луг' in route or route == [] %}
+                {% if 'Саларьево' in route_ and 'Филатов Луг' in route_ or route_ == [] %}
                     <path stroke="#da2128" stroke-width="8" d="M 494 876 L 480 866 S 480 866 480 848" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#da2128" stroke-width="8" d="M 494 876 L 480 866 S 480 866 480 848" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Румянцево' in route and 'Саларьево' in rout or route == [] %}
+                {% if 'Румянцево' in route_ and 'Саларьево' in rout or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="848" y2="829" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="848" y2="829" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Тропарёво' in route and 'Румянцево' in route or route == [] %}
+                {% if 'Тропарёво' in route_ and 'Румянцево' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="812" y2="829" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="812" y2="829" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Юго-Западная' in route and 'Тропарёво' in route or route == [] %}
+                {% if 'Юго-Западная' in route_ and 'Тропарёво' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="812" y2="796" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="812" y2="796" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Проспект Вернадского' in route and 'Юго-Западная' in route or route == [] %}
+                {% if 'Проспект Вернадского' in route_ and 'Юго-Западная' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="777" y2="796" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="777" y2="796" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Университет' in route and 'Проспект Вернадского' in route or route == [] %}
+                {% if 'Университет' in route_ and 'Проспект Вернадского' in route__ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="777" y2="740" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="480" x2="480" y1="777" y2="740" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Воробьёвы горы' in route and 'Университет' in route or route == [] %}
+                {% if 'Воробьёвы горы' in route_ and 'Университет' in route_ or route_ == [] %}
                     <path stroke="#da2128" stroke-width="8" d="M 480 740 L 480 714 S 480 714 508 688" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#da2128" stroke-width="8" d="M 480 740 L 480 714 S 480 714 508 688" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Спортивная' in route and 'Воробьёвы горы' in route or route == [] %}
+                {% if 'Спортивная' in route_ and 'Воробьёвы горы' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="508" x2="572" y1="688" y2="630" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="508" x2="572" y1="688" y2="630" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Фрунзенская' in route and 'Спортивная' in route or route == [] %}
+                {% if 'Фрунзенская' in route_ and 'Спортивная' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="595" x2="572" y1="609" y2="630" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="595" x2="572" y1="609" y2="630" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Парк культуры' in route and 'Фрунзенская' in route or route == [] %}
+                {% if 'Парк культуры' in route_ and 'Фрунзенская' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="595" x2="620" y1="609" y2="587" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="595" x2="620" y1="609" y2="587" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Кропоткинская' in route and 'Парк культуры' in route or route == [] %}
+                {% if 'Кропоткинская' in route_ and 'Парк культуры' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="620" x2="641" y1="587" y2="567" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="620" x2="641" y1="587" y2="567" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Библиотека имени Ленина' in route and 'Кропоткинская' in route or route == [] %}
+                {% if 'Библиотека имени Ленина' in route_ and 'Кропоткинская' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="641" x2="677" y1="567" y2="533" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="641" x2="677" y1="567" y2="533" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Охотный Ряд' in route and 'Библиотека имени Ленина' in route or route == [] %}
+                {% if 'Охотный Ряд' in route_ and 'Библиотека имени Ленина' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="677" x2="737" y1="533" y2="479" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="677" x2="737" y1="533" y2="479" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Лубянка' in route and 'Охотный Ряд' in route or route == [] %}
+                {% if 'Лубянка' in route_ and 'Охотный Ряд' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="737" x2="770" y1="479" y2="450" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="737" x2="770" y1="479" y2="450" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Чистые пруды' in route and 'Лубянка' in route or route == [] %}
-                    <line stroke="#da2128" stroke-width="8" x1="770" x2="807" y1="450" y2="416" stroke-linecap="butt" fill="none"></line>
+                {% if 'Чистые пруды' in route_ and 'Лубянка' in route_ or route_ == [] %}
+                    <line stroke="#da2128" stroke-width="8" x1="770" x2="809" y1="450" y2="414" stroke-linecap="butt" fill="none"></line>
                 {% else %}
-                    <line stroke="#da2128" stroke-width="8" x1="770" x2="807" y1="450" y2="416" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                    <line stroke="#da2128" stroke-width="8" x1="770" x2="809" y1="450" y2="414" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Красные Ворота' in route and 'Чистые пруды' in route or route == [] %}
-                    <line stroke="#da2128" stroke-width="8" x1="807" x2="836" y1="416" y2="390" stroke-linecap="butt" fill="none"></line>
+                {% if 'Красные Ворота' in route_ and 'Чистые пруды' in route_ or route_ == [] %}
+                    <line stroke="#da2128" stroke-width="8" x1="809" x2="836" y1="414" y2="390" stroke-linecap="butt" fill="none"></line>
                 {% else %}
-                    <line stroke="#da2128" stroke-width="8" x1="807" x2="836" y1="416" y2="390" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                    <line stroke="#da2128" stroke-width="8" x1="809" x2="836" y1="414" y2="390" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Комсомольская' in route and 'Красные Ворота' in route or route == [] %}
+                {% if 'Комсомольская' in route_ and 'Красные Ворота' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="836" x2="855" y1="390" y2="372" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="836" x2="855" y1="390" y2="372" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Красносельская' in route and 'Комсомольская' in route or route == [] %}
+                {% if 'Красносельская' in route_ and 'Комсомольская' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="855" x2="896" y1="372" y2="334" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="855" x2="896" y1="372" y2="334" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Сокольники' in route and 'Красносельская' in route or route == [] %}
+                {% if 'Сокольники' in route_ and 'Красносельская' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="896" x2="936" y1="334" y2="298" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="896" x2="936" y1="334" y2="298" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Преображенская площадь' in route and 'Сокольники' in route or route == [] %}
+                {% if 'Преображенская площадь' in route_ and 'Сокольники' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="936" x2="975" y1="298" y2="263" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="936" x2="975" y1="298" y2="263" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Черкизовская' in route and 'Преображенская площадь' in route or route == [] %}
+                {% if 'Черкизовская' in route_ and 'Преображенская площадь' in route_ or route_ == [] %}
                     <path stroke="#da2128" stroke-width="8" d="M 975 263 L 1010 231 S 1010 231 993 213" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#da2128" stroke-width="8" d="M 975 263 L 1010 231 S 1010 231 993 213" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Бульвар Рокоссовского' in route_ and 'Черкизовская' in route_ or route_ == [] %}
                     <line stroke="#da2128" stroke-width="8" x1="965" x2="993" y1="183" y2="213" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#da2128" stroke-width="8" x1="965" x2="993" y1="183" y2="213" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
                 <!-- 2 -->
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Ховрино' in route_ and 'Беломорская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="76" y2="119" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="76" y2="119" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Беломорская' in route_ and 'Речной вокзал' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="119" y2="168" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="119" y2="168" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Речной вокзал' in route_ and 'Водный стадион' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="168" y2="202" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="429" x2="429" y1="168" y2="202" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Водный стадион' in route_ and 'Войковская' in route_ or route_ == [] %}
                     <path stroke="#48b85e" stroke-width="8" d="M 429 202 L 430 233 S 430 233 457 255" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#48b85e" stroke-width="8" d="M 429 202 L 430 233 S 430 233 457 255" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Войковская' in route_ and 'Сокол' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="457" x2="483" y1="255" y2="277" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="457" x2="483" y1="255" y2="277" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Сокол' in route_ and 'Аэропорт' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="483" x2="514" y1="277" y2="303" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="483" x2="514" y1="277" y2="303" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Аэропорт' in route_ and 'Динамо' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="514" x2="551" y1="303" y2="334" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="514" x2="551" y1="303" y2="334" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Динамо' in route_ and 'Белорусская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="551" x2="608" y1="334" y2="382" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="551" x2="608" y1="334" y2="382" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Белорусская' in route_ and 'Маяковская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="608" x2="636" y1="382" y2="405" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="608" x2="636" y1="382" y2="405" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Маяковская' in route_ and 'Тверская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="636" x2="664" y1="405" y2="428" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="636" x2="664" y1="405" y2="428" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Тверская' in route_ and 'Театральная' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="664" x2="737" y1="428" y2="490" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="664" x2="737" y1="428" y2="490" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Театральная' in route_ and 'Новокузнецкая' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="737" x2="800" y1="490" y2="543" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="737" x2="800" y1="490" y2="543" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Новокузнецкая' in route_ and 'Павелецкая' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="800" x2="854" y1="543" y2="588" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="800" x2="854" y1="543" y2="588" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Павелецкая' in route_ and 'Автозаводская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="854" x2="926" y1="588" y2="648" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="854" x2="926" y1="588" y2="648" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Автозаводская' in route_ and 'Технопарк' in route_ or route_ == [] %}
                     <path stroke="#48b85e" stroke-width="8" d="M 926 648 L 964 680 S 964 680 964 705" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#48b85e" stroke-width="8" d="M 926 648 L 964 680 S 964 680 964 705" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Технопарк' in route_ and 'Коломенская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="964" x2="964" y1="705" y2="739" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="964" x2="964" y1="705" y2="739" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Коломенская' in route_ and 'Каширская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="964" x2="964" y1="739" y2="770" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="964" x2="964" y1="739" y2="770" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Каширская' in route_ and 'Кантемировская' in route_ or route_ == [] %}
                     <path stroke="#48b85e" stroke-width="8" d="M 964 770 L 964 791 S 964 791 975 800" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#48b85e" stroke-width="8" d="M 964 770 L 964 791 S 964 791 975 800" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Кантемировская' in route_ and 'Царицыно' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="975" x2="1014" y1="800" y2="832" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="975" x2="1014" y1="800" y2="832" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Царицыно' in route_ and 'Орехово' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="1014" x2="1045" y1="832" y2="858" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="1014" x2="1045" y1="832" y2="858" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Орехово' in route_ and 'Домодедовская' in route_ or route_ == [] %}
                     <path stroke="#48b85e" stroke-width="8" d="M 1045 858 L 1061 871 S 1061 871 1092 871" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#48b85e" stroke-width="8" d="M 1045 858 L 1061 871 S 1061 871 1092 871" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Домодедовская' in route_ and 'Красногвардейская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="1092" x2="1152" y1="871" y2="871" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="1092" x2="1152" y1="871" y2="871" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
-                {% if 'Бульвар Рокоссовского' in route and 'Черкизовская' in route or route == [] %}
+                {% if 'Красногвардейская' in route_ and 'Алма-Атинская' in route_ or route_ == [] %}
                     <line stroke="#48b85e" stroke-width="8" x1="1152" x2="1214" y1="871" y2="871" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#48b85e" stroke-width="8" x1="1152" x2="1214" y1="871" y2="871" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                <!-- 3 -->
+                {% if 'Пятницкое шоссе' in route_ and 'Митино' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="133" y2="169" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="133" y2="169" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Митино' in route_ and 'Волоколамская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="181" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="181" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Волоколамская' in route_ and 'Мякинино' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="181" y2="215" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="181" y2="215" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Мякинино' in route_ and 'Строгино' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="215" y2="255" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="215" y2="255" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Строгино' in route_ and 'Крылатское' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="255" y2="287" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="255" y2="287" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Крылатское' in route_ and 'Молодёжная' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="287" y2="334" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="287" y2="334" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Молодёжная' in route_ and 'Кунцевская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="334" y2="392" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="334" y2="392" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Кунцевская' in route_ and 'Славянский бульвар' in route_ or route_ == [] %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 63 392 L 63 428 S 63 428 136 494" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 63 392 L 63 428 S 63 428 136 494" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Славянский бульвар' in route_ and 'Парк Победы' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="136" x2="322" y1="494" y2="661" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="136" x2="322" y1="494" y2="661" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Парк Победы' in route_ and 'Киевская' in route_ or route_ == [] %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 322 661 L 348 685 L 527 533 S 527 533 571 533" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 322 661 L 348 685 L 527 533 S 527 533 571 533" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Киевская' in route_ and 'Смоленская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="571" x2="620" y1="533" y2="533" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="571" x2="620" y1="533" y2="533" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Смоленская' in route_ and 'Арбатская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="620" x2="666" y1="533" y2="533" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="620" x2="666" y1="533" y2="533" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Арбатская' in route_ and 'Площадь Революции' in route_ or route_ == [] %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 663 534 L 686 501 S 686 501 737 501" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 663 534 L 686 501 S 686 501 737 501" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Площадь Революции' in route_ and 'Курская' in route_ or route_ == [] %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 737 501 L 881 501 S 881 501 910 474" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 737 501 L 881 501 S 881 501 910 474" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Курская' in route_ and 'Бауманская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="910" x2="1006" y1="474" y2="387" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="910" x2="1006" y1="474" y2="387" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Бауманская' in route_ and 'Электрозаводская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1006" x2="1053" y1="387" y2="344" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1006" x2="1053" y1="387" y2="344" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Электрозаводская' in route_ and 'Семёновская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1053" x2="1081" y1="344" y2="318" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1053" x2="1081" y1="344" y2="318" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Семёновская' in route_ and 'Партизанская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1081" x2="1108" y1="318" y2="293" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1081" x2="1108" y1="318" y2="293" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Партизанская' in route_ and 'Измайловская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1108" x2="1129" y1="293" y2="274" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1108" x2="1129" y1="293" y2="274" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Измайловская' in route_ and 'Первомайская' in route_ or route_ == [] %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 1129 274 L 1141 263 S 1141 263 1141 227" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#0078bf" stroke-width="8" d="M 1129 274 L 1141 263 S 1141 263 1141 227" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Первомайская' in route_ and 'Щёлковская' in route_ or route_ == [] %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1141" x2="1141" y1="227" y2="149" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#0078bf" stroke-width="8" x1="1141" x2="1141" y1="227" y2="149" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                <!-- 4 -->
+                {% if 'Александровский сад' in route_ and 'Арбатская' in route_ or route_ == [] %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 666 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 666 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Арбатская' in route_ and 'Смоленская' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="641" x2="597" y1="511" y2="511" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="641" x2="597" y1="511" y2="511" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Смоленская' in route_ and 'Киевская' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="597" x2="571" y1="511" y2="511" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="597" x2="571" y1="511" y2="511" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Киевская' in route_ and 'Выставочная' in route_ or route_ == [] %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 571 511 L 514 511 S 514 511 487 485" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 571 511 L 514 511 S 514 511 487 485" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Выставочная' in route_ and 'Международная' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="487" x2="410" y1="485" y2="410" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="487" x2="410" y1="485" y2="410" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Киевская' in route_ and 'Студенческая' in route_ or route_ == [] %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 571 511 L 514 511 S 514 511 472 548" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 571 511 L 514 511 S 514 511 472 548" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Студенческая' in route_ and 'Кутузовская' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="472" x2="411" y1="548" y2="603" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="472" x2="411" y1="548" y2="603" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Кутузовская' in route_ and 'Фили' in route_ or route_ == [] %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 411 603 L 348 654 S 348 654 282 596" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 411 603 L 348 654 S 348 654 282 596" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Фили' in route_ and 'Багратионовская' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="282" x2="214" y1="596" y2="535" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="282" x2="214" y1="596" y2="535" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Багратионовская' in route_ and 'Филёвский парк' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="214" x2="167" y1="535" y2="493" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="214" x2="167" y1="535" y2="493" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Филёвский парк' in route_ and 'Пионерская' in route_ or route_ == [] %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="167" x2="121" y1="493" y2="452" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#00c1f3" stroke-width="8" x1="167" x2="121" y1="493" y2="452" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Пионерская' in route_ and 'Кунцевская' in route_ or route_ == [] %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 121 452 L 84 419 S 84 419 84 392" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#00c1f3" stroke-width="8" d="M 121 452 L 84 419 S 84 419 84 392" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                <!-- 6 -->
+                {% if 'Медведково' in route_ and 'Бабушкинская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="33" y2="75" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="33" y2="75" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Бабушкинская' in route_ and 'Свиблово' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="75" y2="117" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="75" y2="117" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Свиблово' in route_ and 'Ботанический сад' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="117" y2="159" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="117" y2="159" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Ботанический сад' in route_ and 'ВДНХ' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="159" y2="201" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="159" y2="201" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'ВДНХ' in route_ and 'Алексеевская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="201" y2="243" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="201" y2="243" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Алексеевская' in route_ and 'Рижская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="243" y2="285" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="243" y2="285" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Рижская' in route_ and 'Проспект Мира' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="285" y2="341" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="285" y2="341" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Проспект Мира' in route_ and 'Сухаревская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="341" y2="371" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="341" y2="371" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Сухаревская' in route_ and 'Тургеневская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="371" y2="424" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="371" y2="424" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Тургеневская' in route_ and 'Китай-город' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="424" y2="472" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="824" x2="824" y1="424" y2="472" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Китай-город' in route_ and 'Третьяковская' in route_ or route_ == [] %}
+                    <path stroke="#f58220" stroke-width="8" d="M 824 472 L 824 509 S 824 509 784 545" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#f58220" stroke-width="8" d="M 824 472 L 824 509 S 824 509 784 545" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Третьяковская' in route_ and 'Октябрьская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="784" x2="685" y1="545" y2="632" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="784" x2="685" y1="545" y2="632" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Октябрьская' in route_ and 'Шаболовская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="685" x2="644" y1="632" y2="669" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="685" x2="644" y1="632" y2="669" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Шаболовская' in route_ and 'Ленинский проспект' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="644" x2="602" y1="669" y2="706" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="644" x2="602" y1="669" y2="706" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Ленинский проспект' in route_ and 'Академическая' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="706" y2="721" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="706" y2="721" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Академическая' in route_ and 'Профсоюзная' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="721" y2="740" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="721" y2="740" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Профсоюзная' in route_ and 'Новые Черёмушки' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="740" y2="755" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="740" y2="755" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Новые Черёмушки' in route_ and 'Калужская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="755" y2="776" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="755" y2="776" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Калужская' in route_ and 'Беляево' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="776" y2="794" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="776" y2="794" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Беляево' in route_ and 'Коньково' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="794" y2="814" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="602" x2="602" y1="794" y2="814" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Коньково' in route_ and 'Тёплый Стан' in route_ or route_ == [] %}
+                    <path stroke="#f58220" stroke-width="8" d="M 602 814 L 602 832 S 602 832 613 839" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#f58220" stroke-width="8" d="M 602 814 L 602 832 S 602 832 613 839" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                {% endif %}
+                {% if 'Тёплый Стан' in route_ and 'Ясенево' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="613" x2="629" y1="839" y2="850" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="613" x2="629" y1="839" y2="850" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+                {% if 'Ясенево' in route_ and 'Новоясеневская' in route_ or route_ == [] %}
+                    <line stroke="#f58220" stroke-width="8" x1="629" x2="648" y1="850" y2="862" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#f58220" stroke-width="8" x1="629" x2="648" y1="850" y2="862" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                {% endif %}
+            </svg>
+            <!-- Station -->
+            <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
+                <!-- 1 -->
+                {% if 'Коммунарка' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="564" y="922" cx="564" cy="922" r="6" fill="#ffffff"></circle>
+                        <circle x="564" y="922" cx="564" cy="922" r="4" fill="#da2128"></circle>
+                        <text x="574" y="925" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Коммунарка</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="564" y="922" cx="564" cy="922" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="564" y="922" cx="564" cy="922" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="574" y="925" font-size="10" text-anchor="start"  style="opacity: .4" font-weight="normal">Коммунарка</text>
+                    </g>
+                {% endif %}
+                {% if 'Ольховая' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="538" y="905" cx="538" cy="905" r="6" fill="#ffffff"></circle>
+                        <circle x="538" y="905" cx="538" cy="905" r="4" fill="#da2128"></circle>
+                        <text x="548" y="905" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Ольховая</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="538" y="905" cx="538" cy="905" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="538" y="905" cx="538" cy="905" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="548" y="905" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Ольховая</text>
+                    </g>
+                {% endif %}
+                {% if 'Прокшино' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="520" y="893" cx="520" cy="893" r="6" fill="#ffffff"></circle>
+                        <circle x="520" y="893" cx="520" cy="893" r="4" fill="#da2128"></circle>
+                        <text x="530" y="893" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Прокшино</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="520" y="893" cx="520" cy="893" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="520" y="893" cx="520" cy="893" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="530" y="893" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Прокшино</text>
+                    </g>
+                {% endif %}
+                {% if 'Филатов Луг' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="494" y="876" cx="494" cy="876" r="6" fill="#ffffff"></circle>
+                        <circle x="494" y="876" cx="494" cy="876" r="4" fill="#da2128"></circle>
+                        <text x="504" y="876" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Филатов Луг</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="494" y="876" cx="494" cy="876" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="494" y="876" cx="494" cy="876" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="504" y="876" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Филатов Луг</text>
+                    </g>
+                {% endif %}
+                {% if 'Саларьево' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="480" y="848" cx="480" cy="848" r="6" fill="#ffffff"></circle>
+                        <circle x="480" y="848" cx="480" cy="848" r="4" fill="#da2128"></circle>
+                        <text x="490" y="848" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Саларьево</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="480" y="848" cx="480" cy="848" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="480" y="848" cx="480" cy="848" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="490" y="848" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Саларьево</text>
+                    </g>
+                {% endif %}
+                {% if 'Румянцево' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="480" y="828" cx="480" cy="828" r="6" fill="#ffffff"></circle>
+                        <circle x="480" y="828" cx="480" cy="828" r="4" fill="#da2128"></circle>
+                        <text x="490" y="828" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Румянцево</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="480" y="828" cx="480" cy="828" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="480" y="828" cx="480" cy="828" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="490" y="828" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Румянцево</text>
+                    </g>
+                {% endif %}
+                {% if 'Тропарёво' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="480" y="812" cx="480" cy="812" r="6" fill="#ffffff"></circle>
+                        <circle x="480" y="812" cx="480" cy="812" r="4" fill="#da2128"></circle>
+                        <text x="490" y="812" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Тропарёво</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="480" y="812" cx="480" cy="812" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="480" y="812" cx="480" cy="812" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="490" y="812" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Тропарёво</text>
+                    </g>
+                {% endif %}
+                {% if 'Охотный Ряд' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="737" y="479" cx="737" cy="479" r="6" fill="#ffffff"></circle>
+                        <circle x="737" y="479" cx="737" cy="479" r="4" fill="#da2128"></circle>
+                        <text x="750" y="479" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Охотный Ряд</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="737" y="479" cx="737" cy="479" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="737" y="479" cx="737" cy="479" r="4" fill="#da2128" style="opacity: .4"></circle>
+                        <text x="750" y="479" font-size="10" text-anchor="start" style="opacity: .4" font-weight="normal">Охотный Ряд</text>
+                    </g>
+                {% endif %}
+
+                <!-- 2 -->
+                {% if 'Театральная' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="737" y="490" cx="737" cy="490" r="6" fill="#ffffff"></circle>
+                        <circle x="737" y="490" cx="737" cy="490" r="4" fill="#48b85e"></circle>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="737" y="490" cx="737" cy="490" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="737" y="490" cx="737" cy="490" r="4" fill="#48b85e" style="opacity: .4"></circle>
+                    </g>
+                {% endif %}
+
+                <!-- 2 -->
+                {% if 'Площадь Революции' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="737" y="501" cx="737" cy="501" r="6" fill="#ffffff"></circle>
+                        <circle x="737" y="501" cx="737" cy="501" r="4" fill="#0078bf"></circle>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="737" y="501" cx="737" cy="501" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="737" y="501" cx="737" cy="501" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                    </g>
                 {% endif %}
             </svg>
         </form>

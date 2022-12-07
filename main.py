@@ -14,12 +14,14 @@ green = ['', ]
 
 @app.route("/", methods=['POST', 'GET'])
 def main():
+    route_ = []
     if request.method == 'POST':
         input_1 = request.form['input1']
         input_2 = request.form['input2']
 
         # маршрут
-        route = []
+        route_ = ['Комсомольская', 'Красные Ворота', 'Чистые пруды',
+       'Лубянка', 'Охотный Ряд',]
 
         # кнопки сброса содержимых input
 
@@ -38,7 +40,6 @@ def main():
             point_color = 'red'
         else:
             point_color = ''
-
         # цвет точки у input2
         if input_2 in red:
             point_color2 = 'red'
@@ -50,9 +51,9 @@ def main():
         return render_template('index.html', v1=input_1, v2=input_2,
                                button_input_1=button_input_1, button_input_2=button_input_2,
                                point_color=point_color, point_color2=point_color2,
-                               route=route)
+                               route_=route_)
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index.html', route_=route_)
 
 
 if __name__ == '__main__':
