@@ -425,14 +425,14 @@
                     <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="133" y2="169" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
                 {% if 'Митино' in route_ and 'Волоколамская' in route_ or route_ == [] %}
-                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="181" stroke-linecap="butt" fill="none"></line>
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="190" stroke-linecap="butt" fill="none"></line>
                 {% else %}
-                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="181" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="169" y2="190" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
                 {% if 'Волоколамская' in route_ and 'Мякинино' in route_ or route_ == [] %}
-                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="181" y2="215" stroke-linecap="butt" fill="none"></line>
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="190" y2="215" stroke-linecap="butt" fill="none"></line>
                 {% else %}
-                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="181" y2="215" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
+                    <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="190" y2="215" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
                 {% if 'Мякинино' in route_ and 'Строгино' in route_ or route_ == [] %}
                     <line stroke="#0078bf" stroke-width="8" x1="63" x2="63" y1="215" y2="255" stroke-linecap="butt" fill="none"></line>
@@ -526,9 +526,9 @@
                 {% endif %}
                 <!-- 4 -->
                 {% if 'Александровский сад' in route_ and 'Арбатская' in route_ or route_ == [] %}
-                    <path stroke="#00c1f3" stroke-width="8" d="M 666 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none"></path>
+                    <path stroke="#00c1f3" stroke-width="8" d="M 663 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none"></path>
                 {% else %}
-                    <path stroke="#00c1f3" stroke-width="8" d="M 666 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
+                    <path stroke="#00c1f3" stroke-width="8" d="M 663 521 L 658 511 S 658 511 641 511" stroke-linecap="butt" fill="none" style="opacity: .4"></path>
                 {% endif %}
                 {% if 'Арбатская' in route_ and 'Смоленская' in route_ or route_ == [] %}
                     <line stroke="#00c1f3" stroke-width="8" x1="641" x2="597" y1="511" y2="511" stroke-linecap="butt" fill="none"></line>
@@ -1737,6 +1737,175 @@
                     </g>
                 {% endif %}
                 <!-- 3 -->
+                {% if 'Пятницкое шоссе' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="133" cx="63" cy="133" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="133" cx="63" cy="133" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="140" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Пятницкое шоссе</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="133" cx="63" cy="133" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="133" cx="63" cy="133" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="140" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Пятницкое шоссе</text>
+                    </g>
+                {% endif %}
+                {% if 'Митино' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="169" cx="63" cy="169" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="169" cx="63" cy="169" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="174" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Митино</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="169" cx="63" cy="169" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="169" cx="63" cy="169" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="174" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Митино</text>
+                    </g>
+                {% endif %}
+                {% if 'Волоколамская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="190" cx="63" cy="190" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="190" cx="63" cy="190" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="195" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Волоколамская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="190" cx="63" cy="190" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="190" cx="63" cy="190" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="195" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Волоколамская</text>
+                    </g>
+                {% endif %}
+                {% if 'Мякинино' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="215" cx="63" cy="215" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="215" cx="63" cy="215" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="220" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Мякинино</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="215" cx="63" cy="215" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="215" cx="63" cy="215" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="220" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Мякинино</text>
+                    </g>
+                {% endif %}
+                {% if 'Строгино' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="255" cx="63" cy="255" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="255" cx="63" cy="255" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="260" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Строгино</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="255" cx="63" cy="255" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="255" cx="63" cy="255" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="260" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Строгино</text>
+                    </g>
+                {% endif %}
+                {% if 'Крылатское' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="287" cx="63" cy="287" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="287" cx="63" cy="287" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="292" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Крылатское</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="287" cx="63" cy="287" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="287" cx="63" cy="287" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="292" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Крылатское</text>
+                    </g>
+                {% endif %}
+                {% if 'Молодёжная' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="334" cx="63" cy="334" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="334" cx="63" cy="334" r="4" fill="#0078bf"></circle>
+                        <text x="75" y="339" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Молодёжная</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="334" cx="63" cy="334" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="334" cx="63" cy="334" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="75" y="339" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Молодёжная</text>
+                    </g>
+                {% endif %}
+                {% if 'Кунцевская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="63" y="392" cx="63" cy="392" r="6" fill="#ffffff"></circle>
+                        <circle x="63" y="392" cx="63" cy="392" r="4" fill="#0078bf"></circle>
+                        <text x="100" y="400" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Кунцевская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="63" y="392" cx="63" cy="392" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="63" y="392" cx="63" cy="392" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="100" y="400" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Кунцевская</text>
+                    </g>
+                {% endif %}
+                {% if 'Славянский бульвар' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="136" y="494" cx="136" cy="494" r="6" fill="#ffffff"></circle>
+                        <circle x="136" y="494" cx="136" cy="494" r="4" fill="#0078bf"></circle>
+                        <text x="40" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Славянский бульвар</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="136" y="494" cx="136" cy="494" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="136" y="494" cx="136" cy="494" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="40" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Славянский бульвар</text>
+                    </g>
+                {% endif %}
+                {% if 'Парк Победы' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="322" y="661" cx="322" cy="661" r="6" fill="#ffffff"></circle>
+                        <circle x="322" y="661" cx="322" cy="661" r="4" fill="#0078bf"></circle>
+                        <text x="250" y="664" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Парк Победы</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="322" y="661" cx="322" cy="661" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="322" y="661" cx="322" cy="661" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="250" y="664" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Парк Победы</text>
+                    </g>
+                {% endif %}
+                {% if 'Киевская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="571" y="533" cx="571" cy="533" r="6" fill="#ffffff"></circle>
+                        <circle x="571" y="533" cx="571" cy="533" r="4" fill="#0078bf"></circle>
+                        <text x="515" y="525" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Киевская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="571" y="533" cx="571" cy="533" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="571" y="533" cx="571" cy="533" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="515" y="525" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Киевская</text>
+                    </g>
+                {% endif %}
+                {% if 'Смоленская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="620" y="533" cx="620" cy="533" r="6" fill="#ffffff"></circle>
+                        <circle x="620" y="533" cx="620" cy="533" r="4" fill="#0078bf"></circle>
+                        <text x="580" y="525" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Смоленская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="620" y="533" cx="620" cy="533" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="620" y="533" cx="620" cy="533" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="580" y="525" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Смоленская</text>
+                    </g>
+                {% endif %}
+                {% if 'Арбатская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="663" y="534" cx="663" cy="534" r="6" fill="#ffffff"></circle>
+                        <circle x="663" y="534" cx="663" cy="534" r="4" fill="#0078bf"></circle>
+                        <text x="610" y="546" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Арбатская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="663" y="534" cx="663" cy="534" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="663" y="534" cx="663" cy="534" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="610" y="5346" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Арбатская</text>
+                    </g>
+                {% endif %}
                 {% if 'Площадь Революции' in route_ or route_ == [] %}
                     <g>
                         <circle x="737" y="501" cx="737" cy="501" r="6" fill="#ffffff"></circle>
@@ -1750,7 +1919,276 @@
                         <text x="725" y="515" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Площадь Революции</text>
                     </g>
                 {% endif %}
-
+                {% if 'Курская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="910" y="474" cx="910" cy="474" r="6" fill="#ffffff"></circle>
+                        <circle x="910" y="474" cx="910" cy="474" r="4" fill="#0078bf"></circle>
+                        <text x="860" y="450" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Курская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="910" y="474" cx="910" cy="474" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="910" y="474" cx="910" cy="474" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="860" y="450" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Курская</text>
+                    </g>
+                {% endif %}
+                {% if 'Бауманская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1006" y="387" cx="1006" cy="387" r="6" fill="#ffffff"></circle>
+                        <circle x="1006" y="387" cx="1006" cy="387" r="4" fill="#0078bf"></circle>
+                        <text x="935" y="395" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Бауманская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1006" y="387" cx="1006" cy="387" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1006" y="387" cx="1006" cy="387" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="935" y="395" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Бауманская</text>
+                    </g>
+                {% endif %}
+                {% if 'Электрозаводская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1053" y="344" cx="1053" cy="344" r="6" fill="#ffffff"></circle>
+                        <circle x="1053" y="344" cx="1053" cy="344" r="4" fill="#0078bf"></circle>
+                        <text x="1060" y="355" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Электрозаводская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1053" y="344" cx="1053" cy="344" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1053" y="344" cx="1053" cy="344" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1060" y="355" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Электрозаводская</text>
+                    </g>
+                {% endif %}
+                {% if 'Семёновская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1081" y="318" cx="1081" cy="318" r="6" fill="#ffffff"></circle>
+                        <circle x="1081" y="318" cx="1081" cy="318" r="4" fill="#0078bf"></circle>
+                        <text x="1090" y="325" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Семёновская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1081" y="318" cx="1081" cy="318" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1081" y="318" cx="1081" cy="318" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1090" y="325" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Семёновская</text>
+                    </g>
+                {% endif %}
+                {% if 'Партизанская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1108" y="293" cx="1108" cy="293" r="6" fill="#ffffff"></circle>
+                        <circle x="1108" y="293" cx="1108" cy="293" r="4" fill="#0078bf"></circle>
+                        <text x="1118" y="300" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Партизанская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1108" y="293" cx="1108" cy="293" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1108" y="293" cx="1108" cy="293" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1118" y="300" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Партизанская</text>
+                    </g>
+                {% endif %}
+                {% if 'Измайловская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1129" y="274" cx="1129" cy="274" r="6" fill="#ffffff"></circle>
+                        <circle x="1129" y="274" cx="1129" cy="274" r="4" fill="#0078bf"></circle>
+                        <text x="1139" y="284" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Измайловская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1129" y="274" cx="1129" cy="274" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1129" y="274" cx="1129" cy="274" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1139" y="284" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Измайловская</text>
+                    </g>
+                {% endif %}
+                {% if 'Первомайская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1141" y="227" cx="1141" cy="227" r="6" fill="#ffffff"></circle>
+                        <circle x="1141" y="227" cx="1141" cy="227" r="4" fill="#0078bf"></circle>
+                        <text x="1151" y="230" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Первомайская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1141" y="227" cx="1141" cy="227" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1141" y="227" cx="1141" cy="227" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1151" y="230" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Первомайская</text>
+                    </g>
+                {% endif %}
+                {% if 'Щёлковская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="1141" y="149" cx="1141" cy="149" r="6" fill="#ffffff"></circle>
+                        <circle x="1141" y="149" cx="1141" cy="149" r="4" fill="#0078bf"></circle>
+                        <text x="1116" y="140" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Щёлковская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="1141" y="149" cx="1141" cy="149" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="1141" y="149" cx="1141" cy="149" r="4" fill="#0078bf" style="opacity: .4"></circle>
+                        <text x="1116" y="140" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Щёлковская</text>
+                    </g>
+                {% endif %}
+                <!-- 4 -->
+                {% if 'Александровский сад' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="663" y="521" cx="663" cy="521" r="6" fill="#ffffff"></circle>
+                        <circle x="663" y="521" cx="663" cy="521" r="4" fill="#00c1f3"></circle>
+                        <text x="600" y="490" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Александровский</text>
+                        <text x="640" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">сад</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="663" y="521" cx="663" cy="521" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="663" y="521" cx="663" cy="521" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="600" y="490" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Александровский</text>
+                        <text x="640" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">сад</text>
+                    </g>
+                {% endif %}
+                {% if 'Арбатская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="641" y="511" cx="641" cy="511" r="6" fill="#ffffff"></circle>
+                        <circle x="641" y="511" cx="641" cy="511" r="4" fill="#00c1f3"></circle>
+                        <text x="590" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Арбатская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="641" y="511" cx="641" cy="511" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="641" y="511" cx="641" cy="511" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="590" y="500" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Арбатская</text>
+                    </g>
+                {% endif %}
+                {% if 'Смоленская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="597" y="511" cx="597" cy="511" r="6" fill="#ffffff"></circle>
+                        <circle x="597" y="511" cx="597" cy="511" r="4" fill="#00c1f3"></circle>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="597" y="511" cx="597" cy="511" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="597" y="511" cx="597" cy="511" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                    </g>
+                {% endif %}
+                {% if 'Киевская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="571" y="511" cx="571" cy="511" r="6" fill="#ffffff"></circle>
+                        <circle x="571" y="511" cx="571" cy="511" r="4" fill="#00c1f3"></circle>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="571" y="511" cx="571" cy="511" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="571" y="511" cx="571" cy="511" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                    </g>
+                {% endif %}
+                {% if 'Выставочная' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="487" y="485" cx="487" cy="485" r="6" fill="#ffffff"></circle>
+                        <circle x="487" y="485" cx="487" cy="485" r="4" fill="#00c1f3"></circle>
+                        <text x="495" y="485" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Выставочная</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="487" y="485" cx="487" cy="485" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="487" y="485" cx="487" cy="485" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="495" y="485" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Выставочная</text>
+                    </g>
+                {% endif %}
+                {% if 'Международная' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="410" y="410" cx="410" cy="410" r="6" fill="#ffffff"></circle>
+                        <circle x="410" y="410" cx="410" cy="410" r="4" fill="#00c1f3"></circle>
+                        <text x="330" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Международная</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="410" y="410" cx="410" cy="410" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="410" y="410" cx="410" cy="410" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="330" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Международная</text>
+                    </g>
+                {% endif %}
+                {% if 'Студенческая' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="472" y="548" cx="472" cy="548" r="6" fill="#ffffff"></circle>
+                        <circle x="472" y="548" cx="472" cy="548" r="4" fill="#00c1f3"></circle>
+                        <text x="472" y="560" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Студенческая</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="472" y="548" cx="472" cy="548" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="472" y="548" cx="472" cy="548" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="472" y="560" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Студенческая</text>
+                    </g>
+                {% endif %}
+                {% if 'Кутузовская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="411" y="603" cx="411" cy="603" r="6" fill="#ffffff"></circle>
+                        <circle x="411" y="603" cx="411" cy="603" r="4" fill="#00c1f3"></circle>
+                        <text x="411" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Кутузовская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="411" y="603" cx="411" cy="603" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="411" y="603" cx="411" cy="603" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="411" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Кутузовская</text>
+                    </g>
+                {% endif %}
+                {% if 'Фили' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="282" y="596" cx="282" cy="596" r="6" fill="#ffffff"></circle>
+                        <circle x="282" y="596" cx="282" cy="596" r="4" fill="#00c1f3"></circle>
+                        <text x="295" y="600" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Фили</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="282" y="596" cx="282" cy="596" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="282" y="596" cx="282" cy="596" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="295" y="600" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Фили</text>
+                    </g>
+                {% endif %}
+                {% if 'Багратионовская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="214" y="535" cx="214" cy="535" r="6" fill="#ffffff"></circle>
+                        <circle x="214" y="535" cx="214" cy="535" r="4" fill="#00c1f3"></circle>
+                        <text x="230" y="540" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Багратионовская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="214" y="535" cx="214" cy="535" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="214" y="535" cx="214" cy="535" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="230" y="540" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Багратионовская</text>
+                    </g>
+                {% endif %}
+                {% if 'Филёвский парк' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="167" y="493" cx="167" cy="493" r="6" fill="#ffffff"></circle>
+                        <circle x="167" y="493" cx="167" cy="493" r="4" fill="#00c1f3"></circle>
+                        <text x="180" y="493" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Филёвский парк</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="167" y="493" cx="167" cy="493" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="167" y="493" cx="167" cy="493" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="180" y="493" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Филёвский парк</text>
+                    </g>
+                {% endif %}
+                {% if 'Пионерская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="121" y="452" cx="121" cy="452" r="6" fill="#ffffff"></circle>
+                        <circle x="121" y="452" cx="121" cy="452" r="4" fill="#00c1f3"></circle>
+                        <text x="131" y="452" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Пионерская</text>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="121" y="452" cx="121" cy="452" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="121" y="452" cx="121" cy="452" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                        <text x="131" y="452" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .4">Пионерская</text>
+                    </g>
+                {% endif %}
+                {% if 'Кунцевская' in route_ or route_ == [] %}
+                    <g>
+                        <circle x="84" y="392" cx="84" cy="392" r="6" fill="#ffffff"></circle>
+                        <circle x="84" y="392" cx="84" cy="392" r="4" fill="#00c1f3"></circle>
+                    </g>
+                {% else %}
+                    <g>
+                        <circle x="84" y="392" cx="84" cy="392" r="6" fill="#ffffff" style="opacity: .4"></circle>
+                        <circle x="84" y="392" cx="84" cy="392" r="4" fill="#00c1f3" style="opacity: .4"></circle>
+                    </g>
+                {% endif %}
                 <!-- 5 -->
                 {% if 'Проспект Мира' in route_ or route_ == [] %}
                     <g>
