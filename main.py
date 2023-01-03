@@ -19,6 +19,8 @@ def main():
         input_1 = request.form['input1']
         input_2 = request.form['input2']
 
+        print(input_1, input_2)
+
         # маршрут
         route_ = []
 

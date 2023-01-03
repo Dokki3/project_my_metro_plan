@@ -101,14 +101,15 @@
                 height: 500px;
             }
         </style>
+        <script src="/Users/mrdokki/PycharmProjects/prolect_metro/templates/js.js"></script>
     </head>
     <body>
         <form method="POST">
             <div class="menu">
                 <input name="input1" id="input1" class="input_control1" type="text" placeholder="откуда:" value={{v1}}>
-                <input class="button_in_1" type="submit" value="" style="{{button_input_1}}">
+                <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{button_input_1}}">
                 <input name="input2" id="input2" class="input_control2" type="text" placeholder="куда:" value={{v2}}>
-                <input class="button_in_2" type="submit" value="" style="{{button_input_2}}">
+                <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{button_input_2}}">
                 <input class="button_menu" type="submit" value="маршрут">
                 <div class="point" style="background-color:{{point_color}}"></div>
                 <div class="point2" style="background-color:{{point_color2}}"></div>
@@ -1079,6 +1080,14 @@
                 {% else %}
                     <line stroke="#acbfe3" stroke-width="8" x1="738" x2="691" y1="922" y2="922" stroke-linecap="butt" fill="none" style="opacity: .4"></line>
                 {% endif %}
+            </svg>
+            <!-- Transitions -->
+            <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
+                <!-- Охотный Театральная Площадь -->
+                <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                      d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
+                <!-- Арбатская Александровский Библиотека Боровицкая -->
+
             </svg>
             <!-- Station -->
             <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
