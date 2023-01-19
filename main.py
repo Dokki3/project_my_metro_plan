@@ -18,7 +18,6 @@ def main():
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
-
         print(input_1, input_2)
         # маршрут
         if input_1 == '' and input_2 == '':
@@ -27,7 +26,6 @@ def main():
             route_ = [input_1, input_2]
 
         # цвет точки у input1
-
         if input_1 in red:
             point_color = 'red'
         else:
@@ -38,9 +36,21 @@ def main():
         else:
             point_color2 = ''
 
+        # кнопки сброса
+        bi1 = 'display: none;'
+        bi2 = 'display: none;'
+        if input_1 == '':
+            bi1 = 'display: none;'
+        else:
+            bi1 = ''
+        if input_2 == '':
+            bi2 = 'display: none;'
+        else:
+            bi2 = ''
+
         # HTML код
 
-        return render_template('index.html', v1=input_1, v2=input_2,
+        return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
                                route_=route_)
     if request.method == 'GET':
