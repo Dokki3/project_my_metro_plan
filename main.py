@@ -16,24 +16,15 @@ green = ['', ]
 def main():
     route_ = []
     if request.method == 'POST':
-        input_1 = request.form['input1']
-        input_2 = request.form['input2']
+        input_1 = request.form['input_1']
+        input_2 = request.form['input_2']
 
         print(input_1, input_2)
-
         # маршрут
-        route_ = []
-
-        # кнопки сброса содержимых input
-
-        if input_1 == '':
-            button_input_1 = 'display:none'
+        if input_1 == '' and input_2 == '':
+            route_ = []
         else:
-            button_input_1 = ''
-        if input_2 == '':
-            button_input_2 = 'display:none'
-        else:
-            button_input_2 = ''
+            route_ = [input_1, input_2]
 
         # цвет точки у input1
 
@@ -50,7 +41,6 @@ def main():
         # HTML код
 
         return render_template('index.html', v1=input_1, v2=input_2,
-                               button_input_1=button_input_1, button_input_2=button_input_2,
                                point_color=point_color, point_color2=point_color2,
                                route_=route_)
     if request.method == 'GET':
