@@ -1197,7 +1197,7 @@
                 {% else %}
                     <line stroke="#acbfe3" stroke-width="8" x1="738" x2="691" y1="922" y2="922" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
-                <!-- 12 -->
+                <!-- 15 -->
                 {% if 'Электрозаводская' in route_ and 'Лефортово' in route_ or route_ == [] %}
                     <path stroke="#e66ac0" stroke-width="8" d="M 1044 336 L 1044 382 S 1044 382 1058 392" stroke-linecap="butt" fill="none"></path>
                 {% else %}
@@ -1207,6 +1207,46 @@
                     <line stroke="#e66ac0" stroke-width="8" x1="1058" x2="1081" y1="392" y2="410" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#e66ac0" stroke-width="8" x1="1058" x2="1081" y1="392" y2="410" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Авиамоторная' in route_ and 'Нижегородская' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1081" x2="1120" y1="410" y2="441" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1081" x2="1120" y1="410" y2="441" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Нижегородская' in route_ and 'Стахановская' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1120" x2="1120" y1="441" y2="491" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1120" x2="1120" y1="441" y2="491" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Стахановская' in route_ and 'Окская' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1120" x2="1120" y1="491" y2="551" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1120" x2="1120" y1="491" y2="551" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Окская' in route_ and 'Юго-Восточная' in route_ or route_ == [] %}
+                    <path stroke="#e66ac0" stroke-width="8" d="M 1120 551 L 1120 636 S 1120 636 1148 662" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#e66ac0" stroke-width="8" d="M 1120 551 L 1120 636 S 1120 636 1148 662" stroke-linecap="butt" fill="none" style="opacity: .1"></path>
+                {% endif %}
+                {% if 'Юго-Восточная' in route_ and 'Косино' in route_ or route_ == [] %}
+                    <path stroke="#e66ac0" stroke-width="8" d="M 1148 662 L 1189 699 S 1189 699 1226 699" stroke-linecap="butt" fill="none"></path>
+                {% else %}
+                    <path stroke="#e66ac0" stroke-width="8" d="M 1148 662 L 1189 699 S 1189 699 1226 699" stroke-linecap="butt" fill="none" style="opacity: .1"></path>
+                {% endif %}
+                {% if 'Косино' in route_ and 'Улица Дмитриевского' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1226" x2="1300" y1="699" y2="699" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1226" x2="1300" y1="699" y2="699" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Улица Дмитриевского' in route_ and 'Лухмановская' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1300" x2="1300" y1="699" y2="725" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1300" x2="1300" y1="699" y2="725" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                {% endif %}
+                {% if 'Лухмановская' in route_ and 'Некрасовка' in route_ or route_ == [] %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1300" x2="1300" y1="725" y2="750" stroke-linecap="butt" fill="none"></line>
+                {% else %}
+                    <line stroke="#e66ac0" stroke-width="8" x1="1300" x2="1300" y1="725" y2="750" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
             </svg>
             <!-- Transitions -->
@@ -1382,13 +1422,13 @@
                     <g onclick="click_station(this.id, 1);" id="Фрунзенская">
                         <circle x="595" y="609" cx="595" cy="609" r="6" fill="#ffffff"></circle>
                         <circle x="595" y="609" cx="595" cy="609" r="4" fill="#da2128"></circle>
-                        <text x="530" y="595" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Фрунзенская</text>
+                        <text x="535" y="600" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Фрунзенская</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 1);" id="Фрунзенская">
                         <circle x="595" y="609" cx="595" cy="609" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="595" y="609" cx="595" cy="609" r="4" fill="#da2128" style="opacity: .1"></circle>
-                        <text x="530" y="595" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal">Фрунзенская</text>
+                        <text x="535" y="600" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal">Фрунзенская</text>
                     </g>
                 {% endif %}
                 {% if 'Парк культуры' in route_ or route_ == [] %}
@@ -1421,6 +1461,8 @@
                     <g onclick="click_station(this.id, 1);" id="Библиотека имени Ленина">
                         <circle x="677" y="533" cx="677" cy="533" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="533" cx="677" cy="533" r="4" fill="#da2128"></circle>
+                        <text x="670" y="550" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Библиотека</text>
+                        <text x="670" y="565" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">имени Ленина&#128699;</text>
                         <text x="670" y="550" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Библиотека</text>
                         <text x="670" y="565" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">имени Ленина&#128699;</text>
                     </g>
@@ -1428,6 +1470,8 @@
                     <g onclick="click_station(this.id, 1);" id="Библиотека имени Ленина">
                         <circle x="677" y="533" cx="677" cy="533" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="677" y="533" cx="677" cy="533" r="4" fill="#da2128" style="opacity: .1"></circle>
+                        <text x="670" y="550" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1" stroke="#ffffffe6" stroke-width="2">Библиотека</text>
+                        <text x="670" y="565" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1" stroke="#ffffffe6" stroke-width="2">имени Ленина&#128699;</text>
                         <text x="670" y="550" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Библиотека</text>
                         <text x="670" y="565" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">имени Ленина&#128699;</text>
                     </g>
@@ -1449,12 +1493,14 @@
                     <g onclick="click_station(this.id, 1);" id="Лубянка">
                         <circle x="770" y="450" cx="770" cy="450" r="6" fill="#ffffff"></circle>
                         <circle x="770" y="450" cx="770" cy="450" r="4" fill="#da2128"></circle>
+                        <text x="760" y="465" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Лубянка</text>
                         <text x="760" y="465" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Лубянка</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 1);" id="Лубянка">
                         <circle x="809" y="414" cx="809" cy="414" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="809" y="414" cx="809" cy="414" r="4" fill="#da2128" style="opacity: .1"></circle>
+                        <text x="760" y="465" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Лубянка</text>
                         <text x="760" y="465" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal">Лубянка</text>
                     </g>
                 {% endif %}
@@ -1475,12 +1521,14 @@
                     <g onclick="click_station(this.id, 1);" id="Красные Ворота">
                         <circle x="836" y="390" cx="836" cy="390" r="6" fill="#ffffff"></circle>
                         <circle x="836" y="390" cx="836" cy="390" r="4" fill="#da2128"></circle>
+                        <text x="836" y="405" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Красные Ворота</text>
                         <text x="836" y="405" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Красные Ворота</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 1);" id="Красные Ворота">
                         <circle x="836" y="390" cx="836" cy="390" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="836" y="390" cx="836" cy="390" r="4" fill="#da2128" style="opacity: .1"></circle>
+                        <text x="836" y="405" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Красные Ворота</text>
                         <text x="836" y="405" font-size="10" text-anchor="start" style="opacity: .1" font-weight="normal">Красные Ворота</text>
                     </g>
                 {% endif %}
@@ -1684,12 +1732,14 @@
                     <g onclick="click_station(this.id, 2);" id="Маяковская">
                         <circle x="636" y="405" cx="636" cy="405" r="6" fill="#ffffff"></circle>
                         <circle x="636" y="405" cx="636" cy="405" r="4" fill="#48b85e"></circle>
+                        <text x="565" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">&#128699;Маяковская</text>
                         <text x="565" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">&#128699;Маяковская</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 2);" id="Маяковская">
                         <circle x="636" y="405" cx="636" cy="405" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="636" y="405" cx="636" cy="405" r="4" fill="#48b85e" style="opacity: .1"></circle>
+                        <text x="565" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1" stroke="#ffffffe6" stroke-width="2">&#128699;Маяковская</text>
                         <text x="565" y="415" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">&#128699;Маяковская</text>
                     </g>
                 {% endif %}
@@ -1723,6 +1773,7 @@
                     <g onclick="click_station(this.id, 2);" id="Новокузнецкая">
                         <circle x="800" y="543" cx="800" cy="543" r="6" fill="#ffffff"></circle>
                         <circle x="800" y="543" cx="800" cy="543" r="4" fill="#48b85e"></circle>
+                        <text x="810" y="540" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Новокузнецкая</text>
                         <text x="810" y="540" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Новокузнецкая</text>
                     </g>
                 {% else %}
@@ -1736,6 +1787,7 @@
                     <g onclick="click_station(this.id, 2);" id="Павелецкая">
                         <circle x="854" y="588" cx="854" cy="588" r="6" fill="#ffffff"></circle>
                         <circle x="854" y="588" cx="854" cy="588" r="4" fill="#48b85e"></circle>
+                        <text x="870" y="600" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Павелецкая</text>
                         <text x="870" y="600" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Павелецкая</text>
                     </g>
                 {% else %}
@@ -2049,6 +2101,7 @@
                     <g onclick="click_station(this.id, 3);" id="Площадь Революции">
                         <circle x="737" y="501" cx="737" cy="501" r="6" fill="#ffffff"></circle>
                         <circle x="737" y="501" cx="737" cy="501" r="4" fill="#0078bf"></circle>
+                        <text x="725" y="515" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Площадь Революции&#128699;</text>
                         <text x="725" y="515" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Площадь Революции&#128699;</text>
                     </g>
                 {% else %}
@@ -2243,6 +2296,7 @@
                     <g onclick="click_station(this.id, 4);" id="Студенческая">
                         <circle x="472" y="548" cx="472" cy="548" r="6" fill="#ffffff"></circle>
                         <circle x="472" y="548" cx="472" cy="548" r="4" fill="#00c1f3"></circle>
+                        <text x="472" y="560" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Студенческая</text>
                         <text x="472" y="560" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Студенческая</text>
                     </g>
                 {% else %}
@@ -2256,6 +2310,7 @@
                     <g onclick="click_station(this.id, 4);" id="Кутузовская">
                         <circle x="411" y="603" cx="411" cy="603" r="6" fill="#ffffff"></circle>
                         <circle x="411" y="603" cx="411" cy="603" r="4" fill="#00c1f3"></circle>
+                        <text x="411" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Кутузовская</text>
                         <text x="411" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Кутузовская</text>
                     </g>
                 {% else %}
@@ -2346,6 +2401,7 @@
                     <g onclick="click_station(this.id, 5);" id="Новослободская">
                         <circle x="677" y="317" cx="677" cy="317" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="317" cx="677" cy="317" r="4" fill="#894e35"></circle>
+                        <text x="620" y="305" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Новослободская</text>
                         <text x="620" y="305" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Новослободская</text>
                     </g>
                 {% else %}
@@ -2442,6 +2498,7 @@
                     <g onclick="click_station(this.id, 5);" id="Таганская">
                         <circle x="897" y="538" cx="897" cy="538" r="6" fill="#ffffff"></circle>
                         <circle x="897" y="538" cx="897" cy="538" r="4" fill="#894e35"></circle>
+                        <text x="870" y="530" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Таганская&#128699;</text>
                         <text x="870" y="530" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Таганская&#128699;</text>
                     </g>
                 {% else %}
@@ -2904,6 +2961,7 @@
                     <g onclick="click_station(this.id, 7);" id="Баррикадная">
                         <circle x="579" y="442" cx="579" cy="442" r="6" fill="#ffffff"></circle>
                         <circle x="579" y="442" cx="579" cy="442" r="4" fill="#8e479b"></circle>
+                        <text x="550" y="430" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Баррикадная</text>
                         <text x="550" y="430" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Баррикадная</text>
                     </g>
                 {% else %}
@@ -2930,13 +2988,14 @@
                     <g onclick="click_station(this.id, 7);" id="Кузнецкий Мост">
                         <circle x="778" y="442" cx="778" cy="442" r="6" fill="#ffffff"></circle>
                         <circle x="778" y="442" cx="778" cy="442" r="4" fill="#8e479b"></circle>
-                        <text x="700" y="430" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Кузнецкий Мост</text>
+                        <text x="700" y="435" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Кузнецкий Мост</text>
+                        <text x="700" y="435" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Кузнецкий Мост</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 7);" id="Кузнецкий Мост">
                         <circle x="778" y="442" cx="778" cy="442" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="778" y="442" cx="778" cy="442" r="4" fill="#8e479b" style="opacity: .1"></circle>
-                        <text x="700" y="430" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Кузнецкий Мост</text>
+                        <text x="700" y="435" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Кузнецкий Мост</text>
                     </g>
                 {% endif %}
                 {% if 'Китай-город' in route_ or route_ == [] %}
@@ -2978,6 +3037,7 @@
                     <g onclick="click_station(this.id, 7);" id="Волгоградский проспект">
                         <circle x="1045" y="596" cx="1045" cy="596" r="6" fill="#ffffff"></circle>
                         <circle x="1045" y="596" cx="1045" cy="596" r="4" fill="#8e479b"></circle>
+                        <text x="1020" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Волгоградский проспект</text>
                         <text x="1020" y="615" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Волгоградский проспект</text>
                     </g>
                 {% else %}
@@ -3094,6 +3154,7 @@
                     <g onclick="click_station(this.id, 8);" id="Марксистская">
                         <circle x="896" y="555" cx="896" cy="555" r="6" fill="#ffffff"></circle>
                         <circle x="896" y="555" cx="896" cy="555" r="4" fill="#ffc61a"></circle>
+                        <text x="840" y="570" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Марксистская</text>
                         <text x="840" y="570" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Марксистская</text>
                     </g>
                 {% else %}
@@ -3107,13 +3168,13 @@
                     <g onclick="click_station(this.id, 8);" id="Площадь Ильича">
                         <circle x="993" y="490" cx="993" cy="490" r="6" fill="#ffffff"></circle>
                         <circle x="993" y="490" cx="993" cy="490" r="4" fill="#ffc61a"></circle>
-                        <text x="1003" y="495" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Площадь Ильича</text>
+                        <text x="915" y="485" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Площадь Ильича</text>
                     </g>
                 {% else %}
                     <g onclick="click_station(this.id, 8);" id="Площадь Ильича">
                         <circle x="993" y="490" cx="993" cy="490" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="993" y="490" cx="993" cy="490" r="4" fill="#ffc61a" style="opacity: .1"></circle>
-                        <text x="1003" y="495" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Площадь Ильича</text>
+                        <text x="915" y="485" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Площадь Ильича</text>
                     </g>
                 {% endif %}
                 {% if 'Авиамоторная' in route_ or route_ == [] %}
@@ -3445,6 +3506,7 @@
                     <g onclick="click_station(this.id, 9);" id="Менделеевская">
                         <circle x="677" y="328" cx="677" cy="328" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="328" cx="677" cy="328" r="4" fill="#a1a2a3"></circle>
+                        <text x="603" y="335" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Менделеевская</text>
                         <text x="603" y="335" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Менделеевская</text>
                         <text x="660" y="349" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">&#128699;</text>
                     </g>
@@ -3460,6 +3522,7 @@
                     <g onclick="click_station(this.id, 9);" id="Цветной бульвар">
                         <circle x="677" y="364" cx="677" cy="364" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="364" cx="677" cy="364" r="4" fill="#a1a2a3"></circle>
+                        <text x="597" y="360" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Цветной бульвар</text>
                         <text x="597" y="360" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Цветной бульвар</text>
                         <text x="660" y="374" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">&#128699;</text>
                     </g>
@@ -3475,6 +3538,7 @@
                     <g onclick="click_station(this.id, 9);" id="Чеховская">
                         <circle x="677" y="436" cx="677" cy="436" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="436" cx="677" cy="436" r="4" fill="#a1a2a3"></circle>
+                        <text x="685" y="455" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Чеховская&#128699;</text>
                         <text x="685" y="455" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Чеховская&#128699;</text>
                     </g>
                 {% else %}
@@ -3488,6 +3552,7 @@
                     <g onclick="click_station(this.id, 9);" id="Боровицкая">
                         <circle x="677" y="521" cx="677" cy="521" r="6" fill="#ffffff"></circle>
                         <circle x="677" y="521" cx="677" cy="521" r="4" fill="#a1a2a3"></circle>
+                        <text x="690" y="524" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Боровицкая&#128699;</text>
                         <text x="690" y="524" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Боровицкая&#128699;</text>
                     </g>
                 {% else %}
@@ -3773,6 +3838,7 @@
                     <g onclick="click_station(this.id, 10);" id="Трубная">
                         <circle x="688" y="364" cx="688" cy="364" r="6" fill="#ffffff"></circle>
                         <circle x="688" y="364" cx="688" cy="364" r="4" fill="#b4d445"></circle>
+                        <text x="698" y="364" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Трубная</text>
                         <text x="698" y="364" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Трубная</text>
                     </g>
                 {% else %}
@@ -3786,6 +3852,7 @@
                     <g onclick="click_station(this.id, 10);" id="Сретенский бульвар">
                         <circle x="811" y="426" cx="811" cy="426" r="6" fill="#ffffff"></circle>
                         <circle x="811" y="426" cx="811" cy="426" r="4" fill="#b4d445"></circle>
+                        <text x="790" y="440" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Сретенский бульвар</text>
                         <text x="790" y="440" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Сретенский бульвар</text>
                     </g>
                 {% else %}
@@ -4091,6 +4158,112 @@
                     <g onclick="click_station(this.id, 12);" id="Авиамоторная">
                         <circle x="1081" y="410" cx="1081" cy="410" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="1081" y="410" cx="1081" cy="410" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                    </g>
+                {% endif %}
+                {% if 'Нижегородская' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Нижегородская">
+                        <circle x="1120" y="441" cx="1120" cy="441" r="6" fill="#ffffff"></circle>
+                        <circle x="1120" y="441" cx="1120" cy="441" r="4" fill="#e66ac0"></circle>
+                        <text x="1130" y="441" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Нижегородская</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Нижегородская">
+                        <circle x="1120" y="441" cx="1120" cy="441" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1120" y="441" cx="1120" cy="441" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1130" y="441" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Нижегородская</text>
+                    </g>
+                {% endif %}
+                {% if 'Стахановская' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Стахановская">
+                        <circle x="1120" y="491" cx="1120" cy="491" r="6" fill="#ffffff"></circle>
+                        <circle x="1120" y="491" cx="1120" cy="491" r="4" fill="#e66ac0"></circle>
+                        <text x="1130" y="491" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Стахановская</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Стахановская">
+                        <circle x="1120" y="491" cx="1120" cy="491" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1120" y="491" cx="1120" cy="491" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1130" y="491" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Стахановская</text>
+                    </g>
+                {% endif %}
+                {% if 'Окская' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Окская">
+                        <circle x="1120" y="551" cx="1120" cy="551" r="6" fill="#ffffff"></circle>
+                        <circle x="1120" y="551" cx="1120" cy="551" r="4" fill="#e66ac0"></circle>
+                        <text x="1130" y="551" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Окская</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Окская">
+                        <circle x="1120" y="551" cx="1120" cy="551" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1120" y="551" cx="1120" cy="551" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1130" y="551" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Окская</text>
+                    </g>
+                {% endif %}
+                {% if 'Юго-Восточная' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Юго-Восточная">
+                        <circle x="1148" y="662" cx="1148" cy="662" r="6" fill="#ffffff"></circle>
+                        <circle x="1148" y="662" cx="1148" cy="662" r="4" fill="#e66ac0"></circle>
+                        <text x="1143" y="645" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" stroke="#ffffffe6" stroke-width="2">Юго-Восточная</text>
+                        <text x="1143" y="645" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Юго-Восточная</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Юго-Восточная">
+                        <circle x="1148" y="662" cx="1148" cy="662" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1148" y="662" cx="1148" cy="662" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1143" y="645" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1" stroke="#ffffffe6" stroke-width="2">Юго-Восточная</text>
+                        <text x="1143" y="645" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Юго-Восточная</text>
+                    </g>
+                {% endif %}
+                {% if 'Косино' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Косино">
+                        <circle x="1226" y="699" cx="1226" cy="699" r="6" fill="#ffffff"></circle>
+                        <circle x="1226" y="699" cx="1226" cy="699" r="4" fill="#e66ac0"></circle>
+                        <text x="1236" y="713" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Косино</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Косино">
+                        <circle x="1226" y="699" cx="1226" cy="699" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1226" y="699" cx="1226" cy="699" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1136" y="713" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Косино</text>
+                    </g>
+                {% endif %}
+                {% if 'Улица Дмитриевского' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Улица Дмитриевского">
+                        <circle x="1300" y="699" cx="1300" cy="699" r="6" fill="#ffffff"></circle>
+                        <circle x="1300" y="699" cx="1300" cy="699" r="4" fill="#e66ac0"></circle>
+                        <text x="1310" y="705" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Улица Дмитриевского</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Улица Дмитриевского">
+                        <circle x="1300" y="699" cx="1300" cy="699" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1300" y="699" cx="1300" cy="699" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1310" y="705" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Улица Дмитриевского</text>
+                    </g>
+                {% endif %}
+                {% if 'Лухмановская' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Лухмановская">
+                        <circle x="1300" y="725" cx="1300" cy="725" r="6" fill="#ffffff"></circle>
+                        <circle x="1300" y="725" cx="1300" cy="725" r="4" fill="#e66ac0"></circle>
+                        <text x="1310" y="730" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Лухмановская</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Лухмановская">
+                        <circle x="1300" y="725" cx="1300" cy="725" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1300" y="725" cx="1300" cy="725" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1310" y="730" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Лухмановская</text>
+                    </g>
+                {% endif %}
+                {% if 'Некрасовка' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 12);" id="Некрасовка">
+                        <circle x="1300" y="750" cx="1300" cy="750" r="6" fill="#ffffff"></circle>
+                        <circle x="1300" y="750" cx="1300" cy="750" r="4" fill="#e66ac0"></circle>
+                        <text x="1310" y="755" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Некрасовка</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 12);" id="Некрасовка">
+                        <circle x="1300" y="750" cx="1300" cy="750" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="1300" y="750" cx="1300" cy="750" r="4" fill="#e66ac0" style="opacity: .1"></circle>
+                        <text x="1310" y="755" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Некрасовка</text>
                     </g>
                 {% endif %}
             </svg>
