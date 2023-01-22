@@ -20,7 +20,7 @@ def main():
         input_2 = request.form['input_2']
         print(input_1, input_2)
         # маршрут
-        if input_1 == '' and input_2 == '':
+        if input_1 == '' or input_2 == '':
             route_ = []
         else:
             route_ = [input_1, input_2]
