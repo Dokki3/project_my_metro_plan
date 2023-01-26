@@ -119,42 +119,55 @@
                     document.getElementById("button_in_1").style = ""
                     if (line == 1){
                         document.getElementById("point1").style = "background: #da2128";
+                        document.getElementById("point1_check").value = "#da2128";
                     }
                     else if (line == 2){
                         document.getElementById("point1").style = "background: #48b85e";
+                        document.getElementById("point1_check").value = "#48b85e";
                     }
                     else if (line == 3){
                         document.getElementById("point1").style = "background: #0078bf";
+                        document.getElementById("point1_check").value = "#0078bf";
                     }
                     else if (line == 4){
                         document.getElementById("point1").style = "background: #00c1f3";
+                        document.getElementById("point1_check").value = "#00c1f3";
                     }
                     else if (line == 5){
                         document.getElementById("point1").style = "background: #894e35";
+                        document.getElementById("point1_check").value = "#894e35";
                     }
                     else if (line == 6){
                         document.getElementById("point1").style = "background: #f58220";
+                        document.getElementById("point1_check").value = "#f58220";
                     }
                     else if (line == 7){
                         document.getElementById("point1").style = "background: #8e479b";
+                        document.getElementById("point1_check").value = "#8e479b";
                     }
                     else if (line == 8){
                         document.getElementById("point1").style = "background: #ffc61a";
+                        document.getElementById("point1_check").value = "#ffc61a";
                     }
                     else if (line == 9){
                         document.getElementById("point1").style = "background: #a1a2a3";
+                        document.getElementById("point1_check").value = "#a1a2a3";
                     }
                     else if (line == 10){
                         document.getElementById("point1").style = "background: #b4d445";
+                        document.getElementById("point1_check").value = "#b4d445";
                     }
                     else if (line == 11){
                         document.getElementById("point1").style = "background: #6ac9c8";
+                        document.getElementById("point1_check").value = "#6ac9c8";
                     }
                     else if (line == 12){
                         document.getElementById("point1").style = "background: #acbfe3";
+                        document.getElementById("point1_check").value = "#acbfe3";
                     }
                     else if (line == 15){
                         document.getElementById("point1").style = "background: #e66ac0";
+                        document.getElementById("point1_check").value = "#e66ac0";
                     }
                 }
                 else if (!(a % 2 == 0) && !(document.getElementById("input1").value == id) && !(document.getElementById("input2").value == id)) {
@@ -163,52 +176,72 @@
                     document.getElementById("button_in_2").style = "";
                     if (line == 1){
                         document.getElementById("point2").style = "background: #da2128";
+                        document.getElementById("point2_check").value = "#da2128";
                     }
                     else if (line == 2){
                         document.getElementById("point2").style = "background: #48b85e";
+                        document.getElementById("point2_check").value = "#48b85e";
                     }
                     else if (line == 3){
                         document.getElementById("point2").style = "background: #0078bf";
+                        document.getElementById("point2_check").value = "#0078bf";
                     }
                     else if (line == 4){
                         document.getElementById("point2").style = "background: #00c1f3";
+                        document.getElementById("point2_check").value = "#00c1f3";
                     }
                     else if (line == 5){
                         document.getElementById("point2").style = "background: #894e35";
+                        document.getElementById("point2_check").value = "#894e35";
                     }
                     else if (line == 6){
                         document.getElementById("point2").style = "background: #f58220";
+                        document.getElementById("point2_check").value = "#f58220";
                     }
                     else if (line == 7){
                         document.getElementById("point2").style = "background: #8e479b";
+                        document.getElementById("point2_check").value = "#8e479b";
                     }
                     else if (line == 8){
                         document.getElementById("point2").style = "background: #ffc61a";
+                        document.getElementById("point2_check").value = "#ffc61a";
                     }
                     else if (line == 9){
                         document.getElementById("point2").style = "background: #a1a2a3";
+                        document.getElementById("point2_check").value = "#a1a2a3";
                     }
                     else if (line == 10){
                         document.getElementById("point2").style = "background: #b4d445";
+                        document.getElementById("point2_check").value = "#b4d445";
                     }
                     else if (line == 11){
                         document.getElementById("point2").style = "background: #6ac9c8";
+                        document.getElementById("point2_check").value = "#6ac9c8";
                     }
                     else if (line == 12){
                         document.getElementById("point2").style = "background: #acbfe3";
+                        document.getElementById("point2_check").value = "#acbfe3";
                     }
                     else if (line == 15){
                         document.getElementById("point2").style = "background: #e66ac0";
+                        document.getElementById("point2_check").value = "#e66ac0";
                     }
                 }
             }
             function click_button_id(number){
                 if (number == 1) {
                     document.getElementById("input1").value = "";
+                    document.getElementById("point1_check").value = "";
+                    document.getElementById("point1").style = "background:";
                 }
                 else if (number == 2) {
                     document.getElementById("input2").value = "";
+                    document.getElementById("point2_check").value = "";
+                    document.getElementById("point2").style = "background:";
                 }
+            }
+            function choice_station(statoin){
+                document.getElementById(station).x = "50";
             }
         </script>
     </head>
@@ -221,8 +254,10 @@
                     <input class="button_menu" type="submit" value="маршрут">
                     <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{bi1}}" onclick="click_button_id(1);">
                     <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{bi2}}" onclick="click_button_id(2);">
-                    <div id="point1" class="point" style="background-color:{{point_color}}"></div>
-                    <div id="point2" class="point2" style="background-color:{{point_color2}}"></div>
+                    <div id="point1" class="point" style="background:{{point_color}}"></div>
+                    <div id="point2" class="point2" style="background:{{point_color2}}"></div>
+                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="point1_check" id="point1_check" value="{{point_color}}" type="text">
+                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="point2_check" id="point2_check" value="{{point_color2}}" type="text">
                 </form>
             </div>
             <!-- lines -->
@@ -4661,6 +4696,15 @@
                         <text x="1310" y="755" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Некрасовка</text>
                     </g>
                 {% endif %}
+            </svg>
+            <!-- -->
+            <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
+                <!-- Парк Победы -->
+                <g>
+                    <rect x="322" y="647" width="100px" height="50px" fill="#ffffff" id="park_pobed">
+
+                    </rect>
+                </g>
             </svg>
         </div>
     </body>
