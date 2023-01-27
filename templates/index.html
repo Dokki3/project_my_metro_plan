@@ -251,13 +251,13 @@
                 <form method="POST">
                     <input name="input_1" id="input1" class="input_control1" type="text" placeholder="откуда:" value="{{v1}}">
                     <input name="input_2" id="input2" class="input_control2" type="text" placeholder="куда:" value="{{v2}}">
+                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p1" id="point1_check" value="{{point_color}}" type="text">
+                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p2" id="point2_check" value="{{point_color2}}" type="text">
                     <input class="button_menu" type="submit" value="маршрут">
                     <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{bi1}}" onclick="click_button_id(1);">
                     <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{bi2}}" onclick="click_button_id(2);">
                     <div id="point1" class="point" style="background:{{point_color}}"></div>
                     <div id="point2" class="point2" style="background:{{point_color2}}"></div>
-                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="point1_check" id="point1_check" value="{{point_color}}" type="text">
-                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="point2_check" id="point2_check" value="{{point_color2}}" type="text">
                 </form>
             </div>
             <!-- lines -->
@@ -1458,11 +1458,21 @@
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
                 <!-- Проспект вернадского -->
-                <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
-                      d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
-                <!-- зябликого красногвардейская -->
-                <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
-                      d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
+                {% if 'Проспект Вернадского' in route_ %}
+                    <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                        d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
+                {% else %}
+                    <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                        d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
+                {% endif %}
+                <!-- зябликово красногвардейская -->
+                {% if 'Зябликово' in route_ and 'Красногвардейская' in route_ %}
+                    <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
+                {% else %}
+                    <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
+                {% endif %}
                 <!-- парк победы -->
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
@@ -4710,14 +4720,6 @@
                 {% endif %}
             </svg>
             <!-- -->
-            <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
-                <!-- Парк Победы
-                <g>
-                    <rect x="322" y="647" width="100px" height="50px" fill="#ffffff" id="park_pobed">
-
-                    </rect>
-                </g>-->
-            </svg>
         </div>
     </body>
 </html>

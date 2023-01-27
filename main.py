@@ -26,12 +26,10 @@ def main():
             route_ = [input_1, input_2]
 
         # цвет точки у input1
-        point_color = request.form['point1_check']
-        point_color2 = request.form['point2_check']
+        point_color = request.form['p1']
+        point_color2 = request.form['p2']
 
         # кнопки сброса
-        bi1 = 'display: none;'
-        bi2 = 'display: none;'
         if input_1 == '':
             bi1 = 'display: none;'
         else:
