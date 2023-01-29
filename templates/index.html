@@ -259,6 +259,10 @@
                     <div id="point1" class="point" style="background:{{point_color}}"></div>
                     <div id="point2" class="point2" style="background:{{point_color2}}"></div>
                 </form>
+                <script>
+                    document.getElementById("point1").style = "background: #ccc";
+                    document.getElementById("point2").style = "background: #ccc";
+                </script>
             </div>
             <!-- lines -->
             <svg width="79vw" height="100vh" style="position:relative; left:20vw; bottom:100vh">
@@ -1458,7 +1462,7 @@
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
                 <!-- Проспект вернадского -->
-                {% if 'Проспект Вернадского' in route_ %}
+                {% if 'Проспект Вернадского' in route_ or route_ == []%}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                         d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
                 {% else %}
@@ -1466,7 +1470,7 @@
                         d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
                 {% endif %}
                 <!-- зябликово красногвардейская -->
-                {% if 'Зябликово' in route_ and 'Красногвардейская' in route_ %}
+                {% if 'Зябликово' in route_ and 'Красногвардейская' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
                 {% else %}
@@ -1482,7 +1486,22 @@
                 <!-- новослободская менделеевская -->
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
-
+                <!-- полежаевская хорошёвская -->
+                {% if 'Полежаевская' in route_ and 'Хорошёвская' in route_ or route_ == [] %}
+                    <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 406 320 A 7, 8 0 0 0 396 331 L 404 338 A 7, 8 0 0 0 415 328 L 406 320"></path>
+                {% else %}
+                    <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 406 320 A 7, 8 0 0 0 396 331 L 404 338 A 7, 8 0 0 0 415 328 L 406 320"></path>
+                {% endif %}
+                <!-- Петровский парк Динамо -->
+                {% if 'Петровский парк' in route_ and 'Динамо' in route_ or route_ == [] %}
+                    <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 547 320 A 7, 8 0 0 0 537 331 L 546 339 A 7, 8 0 0 0 557 329 L 547 320"></path>
+                {% else %}
+                    <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                         d="M 547 320 A 7, 8 0 0 0 537 331 L 546 339 A 7, 8 0 0 0 557 329 L 547 320"></path>
+                {% endif %}
             </svg>
             <!-- Station -->
             <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">

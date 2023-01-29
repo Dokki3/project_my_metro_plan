@@ -15,6 +15,8 @@ green = ['', ]
 @app.route("/", methods=['POST', 'GET'])
 def main():
     route_ = []
+    point_color = '#ccc'
+    point_color2 = '#ccc'
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
@@ -45,7 +47,7 @@ def main():
                                point_color=point_color, point_color2=point_color2,
                                route_=route_)
     if request.method == 'GET':
-        return render_template('index.html', route_=route_)
+        return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
 
 
 if __name__ == '__main__':
