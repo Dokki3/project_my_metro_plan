@@ -231,13 +231,13 @@
             function click_button_id(number){
                 if (number == 1) {
                     document.getElementById("input1").value = "";
-                    document.getElementById("point1_check").value = "";
-                    document.getElementById("point1").style = "background:";
+                    document.getElementById("point1_check").value = "#ccc";
+                    document.getElementById("point1").style = "background: #ccc";
                 }
                 else if (number == 2) {
                     document.getElementById("input2").value = "";
-                    document.getElementById("point2_check").value = "";
-                    document.getElementById("point2").style = "background:";
+                    document.getElementById("point2_check").value = "#ccc";
+                    document.getElementById("point2").style = "background: #ccc";
                 }
             }
             function choice_station(statoin){
@@ -260,8 +260,8 @@
                     <div id="point2" class="point2" style="background:{{point_color2}}"></div>
                 </form>
                 <script>
-                    document.getElementById("point1").style = "background: #ccc";
-                    document.getElementById("point2").style = "background: #ccc";
+                    document.getElementById("point1").style = "background: {{point_color}}";
+                    document.getElementById("point2").style = "background: {{point_color2}}";
                 </script>
             </div>
             <!-- lines -->
@@ -1478,14 +1478,29 @@
                          d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
                 {% endif %}
                 <!-- парк победы -->
+                {% if 'Парк Победы' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
+                {% else %}
+                <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                      d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
+                {% endif %}
                 <!-- проспект мира -->
+                {% if 'Проспект Мира' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 817 331 L 817 340 A 7, 8 0 0 0 831 340 L 831 331 A 7, 8 0 0 0 817 331"></path>
+                {% else %}
+                <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                      d="M 817 331 L 817 340 A 7, 8 0 0 0 831 340 L 831 331 A 7, 8 0 0 0 817 331"></path>
+                {% endif %}
                 <!-- новослободская менделеевская -->
+                {% if 'Новослободская' in route_ and 'Менделеевская' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
+                {% else %}
+                <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                      d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
+                {% endif %}
                 <!-- полежаевская хорошёвская -->
                 {% if 'Полежаевская' in route_ and 'Хорошёвская' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
