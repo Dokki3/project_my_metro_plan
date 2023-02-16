@@ -1,5 +1,3 @@
-trans = [['Охотный Ряд', 'Тверская'], ['Театральная', 'Площадь Революции'], ['Библиотека имени Ленина', 'Арбатская3']]
-
 lines = {
     1: ['Бульвар Рокоссовского', 'Черкизовская', 'Преображенская площадь', 'Сокольники',
        'Красносельская', 'Комсомольская1', 'Красные Ворота', 'Чистые пруды',
@@ -18,9 +16,10 @@ lines = {
         'Славянский бульвар', 'Парк Победы3', 'Киевская3', 'Смоленская3', 'Арбатская3', 'Площадь Революции', 'Курская3',
         'Бауманская', 'Электрозаводская3', 'Семёновская', 'Партизанская', 'Измайловская', 'Первомайская', 'Щёлковская'],
 
-    4: [''],
+    4: ['Кунцевская4', 'Пионерская', 'Филёвский парк', 'Багратионовская', 'Фили', 'Кутузовская', 'Студенческая',
+        'Киевская4', 'Смоленская4', 'Арбатская4', 'Александровский сад'],
 
-    '4A': [''],
+    '4A': ['Киевская4A', 'Выставочная', 'Международная'],
 
     5: ['Проспект Мира5', 'Новослободская', 'Белорусская5', 'Краснопресненская', 'Киевская5', 'Парк Культуры5',
         'Октябрьская5', 'Добрынинская', 'Павелецкая5', 'Таганская5', 'Курская5', 'Комсомольская5'],
@@ -60,18 +59,95 @@ lines = {
          'Юго-Восточная', 'Косино', 'Улица Дмитриевского', 'Лухмановская', 'Некрасовка'],
 }
 
+trans = {
+    1: {
+        2: [['Охотный Ряд', 'Театральная']],
+        3: [['Библиотека имени Ленина', 'Арбатская3']],
+        4: [['Библиотека имени Ленина', 'Александровский сад']],
+        5: [['Парк культуры1', 'Парк культуры5'], ['Комсомольская1', 'Комсомольская5']],
+        6: [['Чистые пруды', 'Тургеневская']],
+        7: [['Лубянка', 'Кузнецкий Мост']],
+        9: [['Библиотека имени Ленина', 'Боровицкая']],
+        10: [['Чистые пруды', 'Сретенский бульвар']],
+        11: [['Проспект Вернадского1', 'Проспект Вернадского11']]
+    },
+    2: {
+        1: [['Театральная', 'Охотный Ряд']],
+        3: [['Театральная', 'Площадь Революции']],
+        5: [['Белорусская2', 'Белорусская5'], ['Павелецкая2', 'Павелецкая5']],
+        6: [['Новокузнецкая', 'Третьяковская6']],
+        7: [['Тверская', 'Пушкинская']],
+        8: [['Новокузнецкая', 'Третьяковская8']],
+        9: [['Тверская', 'Чеховская']],
+        10: [['Красногвардейская', 'Зябликово']],
+        11: [['Динамо', 'Петровский парк']]
+    }
+}
 
 def plotting_a_route(station1, line1, station2, line2):
     global lines, trans
     if line1 == line2 and line1 != (5 or 11) and line2 != (5 or 11):
         line = lines[line1]
-        print(line)
         match line[line.index(station1):line.index(station2):]:
             case []:
                 line = line[::-1]
                 return line[line.index(station1):line.index(station2) + 1:]
             case _:
                 return line[line.index(station1):line.index(station2) + 1:]
-    else:
-        return []
+    elif line1 == 4 and line2 == '4A':
+        line = lines[line1]
+        if line[line.index(station1):8:] == []:
+            line = line[::-1]
+            line = line[line.index(station1):4:]
+            for i in lines[line2]:
+                    line.append(i)
+        else:
+            line = lines[line1][line.index(station1):8:]
+            for i in lines[line2]:
+                    line.append(i)
+        return line[:line.index(station2) + 1:]
 
+    elif line1 == '4A' and line2 == 4:
+        line = lines[line1]
+        if line[line.index(station1):1:] == []:
+            line = line[::-1]
+            line = line[line.index(station1):3:]
+            if 7 > lines[line2].index(station2):
+                for i in lines[line2][:8:][::-1]:
+                        line.append(i)
+            else:
+                for i in lines[line2][7:lines[line2].index(station2) + 1:]:
+                        line.append(i)
+        else:
+            line = lines[line1][line.index(station1):1:]
+            if 7 > lines[line2].index(station2):
+                for i in lines[line2][:8:][::-1]:
+                    line.append(i)
+            else:
+                for i in lines[line2][7:lines[line2].index(station2) + 1:]:
+                    line.append(i)
+        return line[:line.index(station2) + 1:]
+
+    elif line1 != line2 and line1 != (5 or 11) and line2 != (5 or 11):
+        try:
+            tr = trans[line1][line2]
+
+            line = lines[line1]
+            match line[line.index(station1):line.index(tr[0][0]) + 1:]:
+                case []:
+                    line = line[line.index(station1):line.index(tr[0][0]) - 1:-1]
+                case _:
+                    line = line[line.index(station1):line.index(tr[0][0]) + 1:]
+            line_ = lines[line2]
+            match line_[line_.index(tr[0][1]):line_.index(station2) + 1:]:
+                case []:
+                    line_ = line_[line_.index(tr[0][1]):line_.index(station2) - 1:-1]
+                case _:
+                    line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
+            return line + line_
+        except:
+            return None
+
+
+
+#print(plotting_a_route('Юго-Западная', 1, 'Войковская', 2))

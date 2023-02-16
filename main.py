@@ -29,6 +29,8 @@ def main():
                 line1 = 3
             case ['#00c1f3', _]:
                 line1 = 4
+            case ['#00c1f4', _]:
+                line1 = '4A'
             case ['#894e35', _]:
                 line1 = 5
             case ['#f58220', _]:
@@ -57,6 +59,8 @@ def main():
                 line2 = 3
             case [_, '#00c1f3']:
                 line2 = 4
+            case [_, '#00c1f4']:
+                line2 = '4A'
             case [_, '#894e35']:
                 line2 = 5
             case [_, '#f58220']:
