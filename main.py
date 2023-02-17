@@ -39,6 +39,8 @@ def main():
                 line1 = 7
             case ['#ffc61a', _]:
                 line1 = 8
+            case ['#ffc61b', _]:
+                line1 = '8A'
             case ['#a1a2a3', _]:
                 line1 = 9
             case ['#b4d445', _]:
@@ -69,6 +71,8 @@ def main():
                 line2 = 7
             case [_, '#ffc61a']:
                 line2 = 8
+            case [_, '#ffc61b']:
+                line2 = '8A'
             case [_, '#a1a2a3']:
                 line2 = 9
             case [_, '#b4d445']:
