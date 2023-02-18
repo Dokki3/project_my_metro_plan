@@ -109,7 +109,14 @@ trans = {
         11: [['Выставочная', 'Деловой центр11A']],
     },
     5: {
-
+        1: [['Комсомольская5', 'Комсомольская1'], ['Парк Культуры5', 'Парк Культуры1']],
+        2: [['Белорусская5', 'Белорусская2'], ['Павелецкая5', 'Павелецкая2']],
+        3: [['Киевская5', 'Киевская3'], ['Курская5', 'Курская3']],
+        4: [['Киевская5', 'Киевская4']],
+        6: [['Проспект Мира5', 'Проспект Мира6'], ['Октябрьская5', 'Октябрьская6']],
+        7: [['Краснопресненская', 'Баррикадная'], ['Таганская5', 'Таганская7']],
+        8: [['Таганская5', 'Марксистская']],
+        10: [['Курская5', 'Чкаловская']],
     },
     6: {
         1: [['Тургеневская', 'Чистые пруды']],
@@ -213,12 +220,13 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                 for i in lines[line2][7:lines[line2].index(station2) + 1:]:
                     line.append(i)
         return line[:line.index(station2) + 1:]
-    # маршруты друх вариантов (больше одной линии)
+    # маршруты двух вариантов (больше одной линии)
     elif line1 != line2 and line1 != (5 or 11) and line2 != (5 or 11):
         # проверяем можно ли проложить маршрут с одной пересадкой
-        line = lines[line1]
-        tr = trans[line1][line2]
+        line_resault = []
         try:
+            line = lines[line1]
+            tr = trans[line1][line2]
             if len(tr) != 1:
                 size = []
                 for j in tr:
@@ -248,12 +256,13 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                     line_.append(station2)
                 case _:
                     line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
-            return line + line_
+            line_resault.append(line + line_)
         # если нельзя проложить маршрут через одну пересадку
         except KeyError:
+            pass
+        try:
             tr1 = []
             tr2 = []
-            line_resault = []
             line_fixed_1 = line1
             line_fixed_2 = line2
             #
@@ -268,11 +277,25 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                         for j in tr1:
                             match line[line.index(station1):line.index(j[0]) + 1:]:
                                 case []:
-                                    size.append(len(line[line.index(station1):line.index(j[0]) - 1:-1]))
+                                    l = line[line.index(station1):line.index(j[0]):-1]
+                                    l.append(j[0])
+                                    size.append(len(l))
                                 case _:
                                     size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
                         min_tr = size.index(min(size))
                         tr1 = [tr1[min_tr]]
+                    if len(tr2) != 1:
+                        size = []
+                        for j in tr2:
+                            match line[line.index(tr1[0][1]):line.index(j[0]) + 1:]:
+                                case []:
+                                    l = line[line.index(tr1[0][1]):line.index(j[0]) - 1:-1]
+                                    l.append(j[0])
+                                    size.append(len(l))
+                                case _:
+                                    size.append(len(line[line.index(tr1[0][1]):line.index(j[0]) + 1:]))
+                        min_tr = size.index(min(size))
+                        tr2 = [tr2[min_tr]]
                     # находим массив станций для 1-ой линии
                     line = lines[line1]
                     match line[line.index(station1):line.index(tr1[0][0]) + 1:]:
@@ -300,11 +323,13 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                     line_resault.append(line + line_ + line_1)
                 except KeyError:
                     continue
-            return sorted(line_resault, key=lambda x: len(x))[0]
+        except:
+            pass
+        return sorted(line_resault, key=lambda x: len(x))[0]
 
     else:
         return []
 
 
 if __name__ == '__main__':
-    print(plotting_a_route('Чертановская', 9, 'Марьино', 10))
+    print(plotting_a_route('Спортивная', 1, 'Ленинский проспект', 6))

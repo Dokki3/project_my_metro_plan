@@ -111,11 +111,9 @@
             }
         </style>
         <script>
-            var a = 0;
             function click_station(id, line) {
-                if (a % 2 == 0 && !(document.getElementById("input1").value == id) && !(document.getElementById("input2").value == id)){
+                if (document.getElementById("input1").value == "" && !(document.getElementById("input2").value == id)){
                     document.getElementById("input1").value = id;
-                    a = a + 1
                     document.getElementById("button_in_1").style = ""
                     if (line == 1){
                         document.getElementById("point1").style = "background: #da2128";
@@ -178,9 +176,8 @@
                         document.getElementById("point1_check").value = "#e66ac0";
                     }
                 }
-                else if (!(a % 2 == 0) && !(document.getElementById("input1").value == id) && !(document.getElementById("input2").value == id)) {
+                if (!(document.getElementById("input1").value == id) && document.getElementById("input2").value == "") {
                     document.getElementById("input2").value = id;
-                    a = a + 1;
                     document.getElementById("button_in_2").style = "";
                     if (line == 1){
                         document.getElementById("point2").style = "background: #da2128";
@@ -1603,14 +1600,6 @@
                 {% else %}
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 817 470 L 817 488 A 7, 8 0 0 0 831 488 L 831 470 A 7, 8 0 0 0 817 470"></path>
-                {% endif %}
-                <!-- Крестьянская застава Пролетарская -->
-                {% if 'Крестьянская застава' in route_ and 'Пролетарская' in route_ or route_ == [] %}
-                <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
-                      d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
-                {% else %}
-                <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
-                      d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
                 {% endif %}
             </svg>
             <!-- Station -->
