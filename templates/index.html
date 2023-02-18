@@ -1509,10 +1509,15 @@
             <!-- Transitions -->
             <svg width="79vw" height="100vh" style="position:absolute; left:20vw; top:0vh">
                 <!-- Охотный Театральная Площадь -->
+                {% if route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
+                {% else %}
+                <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
+                      d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
+                {% endif %}
                 <!-- Проспект вернадского -->
-                {% if 'Проспект Вернадского' in route_ or route_ == []%}
+                {% if 'Проспект Вернадского' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                         d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
                 {% else %}
@@ -1528,7 +1533,7 @@
                          d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
                 {% endif %}
                 <!-- парк победы -->
-                {% if 'Парк Победы' in route_ or route_ == [] %}
+                {% if 'Парк Победы3' in route_ and 'Парк Победы8A' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
                 {% else %}
@@ -1536,7 +1541,7 @@
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
                 {% endif %}
                 <!-- проспект мира -->
-                {% if 'Проспект Мира' in route_ or route_ == [] %}
+                {% if 'Проспект Мира5' in route_ and 'Проспект Мира6' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 817 331 L 817 340 A 7, 8 0 0 0 831 340 L 831 331 A 7, 8 0 0 0 817 331"></path>
                 {% else %}
@@ -1568,7 +1573,7 @@
                          d="M 547 320 A 7, 8 0 0 0 537 331 L 546 339 A 7, 8 0 0 0 557 329 L 547 320"></path>
                 {% endif %}
                 <!-- Белорусская -->
-                {% if 'Белорусская' in route_ or route_ == [] %}
+                {% if 'Белорусская2' in route_ and 'Белорусская5' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 605 369 A 7, 8 0 0 0 595 380 L 603 387 A 7, 8 0 0 0 614 377 L 605 369"></path>
                 {% else %}
@@ -1576,7 +1581,7 @@
                          d="M 605 369 A 7, 8 0 0 0 595 380 L 603 387 A 7, 8 0 0 0 614 377 L 605 369"></path>
                 {% endif %}
                 <!-- Павелецкая -->
-                {% if 'Павелецкая' in route_ or route_ == [] %}
+                {% if 'Павелецкая2' in route_ and 'Павелецкая5' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 859 582 A 7, 8 0 0 0 849 593 L 857 600 A 7, 8 0 0 0 868 590 L 859 582"></path>
                 {% else %}
@@ -1584,7 +1589,7 @@
                          d="M 859 582 A 7, 8 0 0 0 849 593 L 857 600 A 7, 8 0 0 0 868 590 L 859 582"></path>
                 {% endif %}
                 <!-- Электрозаводская -->
-                {% if 'Электрозаводская' in route_ or route_ == [] %}
+                {% if 'Электрозаводская3' in route_ and 'Электрозаводская15' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1049 330 A 7, 8 0 0 0 1039 341 L 1048 349 A 7, 8 0 0 0 1059 339 L 1049 330"></path>
                 {% else %}
@@ -1592,7 +1597,7 @@
                          d="M 1049 330 A 7, 8 0 0 0 1039 341 L 1048 349 A 7, 8 0 0 0 1059 339 L 1049 330"></path>
                 {% endif %}
                 <!-- Китай-город -->
-                {% if 'Китай-город' in route_ or route_ == [] %}
+                {% if 'Китай-город6' in route_ and 'Китай-город7' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 817 470 L 817 488 A 7, 8 0 0 0 831 488 L 831 470 A 7, 8 0 0 0 817 470"></path>
                 {% else %}
