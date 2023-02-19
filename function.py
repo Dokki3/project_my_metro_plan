@@ -191,7 +191,7 @@ trans = {
 
 
 # алгоритм построения маршрута НАХУЙ
-def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str):
+def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str) -> list:
     print(station1, line1, station2, line2)
     global lines, trans
     # маршрут для одной линии
