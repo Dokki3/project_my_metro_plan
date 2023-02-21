@@ -167,6 +167,10 @@
                         document.getElementById("point1").style = "background: #6ac9c8";
                         document.getElementById("point1_check").value = "#6ac9c8";
                     }
+                    else if (line == 111){
+                        document.getElementById("point1").style = "background: #6ac9c9";
+                        document.getElementById("point1_check").value = "#6ac9c9";
+                    }
                     else if (line == 12){
                         document.getElementById("point1").style = "background: #acbfe3";
                         document.getElementById("point1_check").value = "#acbfe3";
@@ -230,6 +234,10 @@
                     else if (line == 11){
                         document.getElementById("point2").style = "background: #6ac9c8";
                         document.getElementById("point2_check").value = "#6ac9c8";
+                    }
+                     else if (line == 111){
+                        document.getElementById("point2").style = "background: #6ac9c9";
+                        document.getElementById("point2_check").value = "#6ac9c9";
                     }
                     else if (line == 12){
                         document.getElementById("point2").style = "background: #acbfe3";
@@ -1344,22 +1352,22 @@
                 {% else %}
                     <line stroke="#6ac9c8" stroke-width="8" x1="542" x2="478" y1="326" y2="326" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
-                {% if 'ЦСКА' in route_ and 'Хорошёвская' in route_ or route_ == [] %}
+                {% if 'ЦСКА' in route_ and 'Хорошёвская11' in route_ or route_ == [] %}
                     <line stroke="#6ac9c8" stroke-width="8" x1="478" x2="401" y1="326" y2="326" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#6ac9c8" stroke-width="8" x1="478" x2="401" y1="326" y2="326" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
-                {% if 'Хорошёвская' in route_ and 'Шелепиха' in route_ or route_ == [] %}
+                {% if 'Хорошёвская11A' in route_ and 'Шелепиха' in route_ or route_ == [] %}
                     <line stroke="#6ac9c8" stroke-width="8" x1="401" x2="401" y1="326" y2="444" stroke-linecap="butt" fill="none"></line>
                 {% else %}
                     <line stroke="#6ac9c8" stroke-width="8" x1="401" x2="401" y1="326" y2="444" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
-                {% if 'Шелепиха' in route_ and 'Деловой центр11' in route_ or route_ == [] %}
+                {% if 'Шелепиха' in route_ and 'Деловой центр11A' in route_ or route_ == [] %}
                     <path stroke="#6ac9c8" stroke-width="8" d="M 401 444 L 401 492 S 401 492 478 492" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#6ac9c8" stroke-width="8" d="M 401 444 L 401 492 S 401 492 478 492" stroke-linecap="butt" fill="none" style="opacity: .1"></path>
                 {% endif %}
-                {% if 'Хорошёвская' in route_ and 'Народное Ополчение' in route_ or route_ == [] %}
+                {% if 'Хорошёвская11' in route_ and 'Народное Ополчение' in route_ or route_ == [] %}
                     <path stroke="#6ac9c8" stroke-width="8" d="M 401 326 L 330 370 S 330 370 289 370" stroke-linecap="butt" fill="none"></path>
                 {% else %}
                     <path stroke="#6ac9c8" stroke-width="8" d="M 401 326 L 330 370 S 330 370 289 370" stroke-linecap="butt" fill="none" style="opacity: .1"></path>
@@ -4432,7 +4440,7 @@
                         <text x="450" y="317" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">ЦСКА</text>
                     </g>
                 {% endif %}
-                {% if 'Хорошёвская' in route_ or route_ == [] %}
+                {% if 'Хорошёвская11' in route_ or route_ == [] %}
                     <g onclick="click_station(this.id, 11);" id="Хорошёвская">
                         <circle x="401" y="326" cx="401" cy="326" r="6" fill="#ffffff"></circle>
                         <circle x="401" y="326" cx="401" cy="326" r="4" fill="#6ac9c8"></circle>
@@ -4445,26 +4453,39 @@
                         <text x="330" y="326" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Хорошёвская</text>
                     </g>
                 {% endif %}
+                {% if 'Хорошёвская11A' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 111);" id="Хорошёвская">
+                        <circle x="401" y="326" cx="401" cy="326" r="6" fill="#ffffff"></circle>
+                        <circle x="401" y="326" cx="401" cy="326" r="4" fill="#6ac9c8"></circle>
+                        <text x="330" y="326" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Хорошёвская</text>
+                    </g>
+                {% else %}
+                    <g onclick="click_station(this.id, 111);" id="Хорошёвская">
+                        <circle x="401" y="326" cx="401" cy="326" r="6" fill="#ffffff" style="opacity: .1"></circle>
+                        <circle x="401" y="326" cx="401" cy="326" r="4" fill="#6ac9c8" style="opacity: .1"></circle>
+                        <text x="330" y="326" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Хорошёвская</text>
+                    </g>
+                {% endif %}
                 {% if 'Шелепиха' in route_ or route_ == [] %}
-                    <g onclick="click_station(this.id, 11);" id="Шелепиха">
+                    <g onclick="click_station(this.id, 111);" id="Шелепиха">
                         <circle x="401" y="444" cx="401" cy="444" r="6" fill="#ffffff"></circle>
                         <circle x="401" y="444" cx="401" cy="444" r="4" fill="#6ac9c8"></circle>
                         <text x="350" y="444" font-size="10" text-anchor="start" opacity="unset" font-weight="normal">Шелепиха</text>
                     </g>
                 {% else %}
-                    <g onclick="click_station(this.id, 11);" id="Шелепиха">
+                    <g onclick="click_station(this.id, 111);" id="Шелепиха">
                         <circle x="401" y="444" cx="401" cy="444" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="401" y="444" cx="401" cy="444" r="4" fill="#6ac9c8" style="opacity: .1"></circle>
                         <text x="350" y="444" font-size="10" text-anchor="start" opacity="unset" font-weight="normal" style="opacity: .1">Шелепиха</text>
                     </g>
                 {% endif %}
-                {% if 'Деловой центр11' in route_ or route_ == [] %}
-                    <g onclick="click_station(this.id, 11);" id="Деловой центр">
+                {% if 'Деловой центр11A' in route_ or route_ == [] %}
+                    <g onclick="click_station(this.id, 111);" id="Деловой центр">
                         <circle x="478" y="492" cx="478" cy="492" r="6" fill="#ffffff"></circle>
                         <circle x="478" y="492" cx="478" cy="492" r="4" fill="#6ac9c8"></circle>
                     </g>
                 {% else %}
-                    <g onclick="click_station(this.id, 11);" id="Деловой центр">
+                    <g onclick="click_station(this.id, 111);" id="Деловой центр">
                         <circle x="478" y="492" cx="478" cy="492" r="6" fill="#ffffff" style="opacity: .1"></circle>
                         <circle x="478" y="492" cx="478" cy="492" r="4" fill="#6ac9c8" style="opacity: .1"></circle>
                     </g>

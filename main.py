@@ -47,6 +47,8 @@ def main():
                 line1 = 10
             case ['#6ac9c8', _]:
                 line1 = 11
+            case ['#6ac9c9', _]:
+                line1 = '11A'
             case ['#acbfe3', _]:
                 line1 = 12
             case ['#e66ac0', _]:
@@ -79,6 +81,8 @@ def main():
                 line2 = 10
             case [_, '#6ac9c8']:
                 line2 = 11
+            case [_, '#6ac9c9']:
+                line2 = '11A'
             case [_, '#acbfe3']:
                 line2 = 12
             case [_, '#e66ac0']:
