@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from function import plotting_a_route
+from func_time import determining_the_time
 app = Flask(__name__)
 # variables
 
@@ -16,6 +17,9 @@ def main():
         # цвет точки у input1
         point_color = request.form['p1']
         point_color2 = request.form['p2']
+
+        # время поездки
+        time = 0
 
         point_colors = [point_color, point_color2]
 
@@ -111,6 +115,25 @@ def main():
                     station2 += str(line2)
 
             route_ = plotting_a_route(station1, line1, station2, line2)
+            try:
+                route_.sort(key=determining_the_time)
+            except TypeError:
+                route_.sort(key=lambda x: len(x))
+            route_ = route_[0]
+            # узнаём время поездки
+            try:
+                time = determining_the_time(route_)
+                match line1:
+                    case 1 | 2 | 3 | 5 | 6 | 7 | 8 | '8A':
+                        time += 2
+                    case 4 | '4A':
+                        time += 4
+                if time < 60:
+                    time = f'{determining_the_time(route_)} минут'
+                else:
+                    time = f'{time // 60} час {time % 60} минут'
+            except TypeError:
+                pass
 
         # кнопки сброса
         if input_1 == '':
@@ -126,7 +149,7 @@ def main():
 
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
-                               route_=route_)
+                               route_=route_, time=time)
     if request.method == 'GET':
         return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
 

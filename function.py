@@ -209,17 +209,21 @@ trans = {
 def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str) -> list:
     print(station1, line1, station2, line2)
     global lines, trans
+    line_resault = []
     # маршрут для одной линии
-    if line1 == line2:
+    try:
         line = lines[line1]
         match line[line.index(station1):line.index(station2):]:
             case []:
                 line = line[::-1]
-                return line[line.index(station1):line.index(station2) + 1:]
+                line_resault.append(line[line.index(station1):line.index(station2) + 1:])
             case _:
-                return line[line.index(station1):line.index(station2) + 1:]
+                line_resault.append(line[line.index(station1):line.index(station2) + 1:])
+    except ValueError:
+        pass
+    '''
     # маршрут для 4 линии
-    elif line1 == 4 and line2 == '4A':
+    if line1 == 4 and line2 == '4A':
         line = lines[line1]
         if line[line.index(station1):8:] == []:
             line = line[::-1]
@@ -230,7 +234,7 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
             line = lines[line1][line.index(station1):8:]
             for i in lines[line2]:
                     line.append(i)
-        return line[:line.index(station2) + 1:]
+        line_resault.append(line[:line.index(station2) + 1:])
     elif line1 == '4A' and line2 == 4:
         line = lines[line1]
         if line[line.index(station1):1:] == []:
@@ -250,217 +254,207 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
             else:
                 for i in lines[line2][7:lines[line2].index(station2) + 1:]:
                     line.append(i)
-        return line[:line.index(station2) + 1:]
+        line_resault.append(line[:line.index(station2) + 1:])'''
     # маршруты двух вариантов (больше одной линии)
-    elif line1 != line2:
-        # находим маршрут с одной пересадкой
-        line_resault = []
+    # находим маршрут с одной пересадкой
+    try:
+        line = lines[line1]
+        tr = trans[line1][line2]
+        if len(tr) != 1:
+            size = []
+            for j in tr:
+                match line[line.index(station1):line.index(j[0]) + 1:]:
+                    case []:
+                        line_min_tr = line[line.index(station1):line.index(j[0]):-1]
+                        line_min_tr.append(j[1])
+                        size.append(len(line_min_tr))
+                    case _:
+                        size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
+            min_tr = size.index(min(size))
+            tr = [tr[min_tr]]
+        # находим массив станций для 1-ой линии
+        line = lines[line1]
+        match line[line.index(station1):line.index(tr[0][0]) + 1:]:
+            case []:
+                line = line[line.index(station1):line.index(tr[0][0]):-1]
+                line.append(tr[0][0])
+            case _:
+                line = line[line.index(station1):line.index(tr[0][0]) + 1:]
+        # находим массив станций для 2-ой линии
+        line_ = lines[line2]
+        match line_[line_.index(tr[0][1]):line_.index(station2) + 1:]:
+            case []:
+                line_ = line_[line_.index(tr[0][1]):line_.index(station2):-1]
+                line_.append(station2)
+            case _:
+                line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
+        line_resault.append(line + line_)
+    except KeyError:
+        pass
+    # находим все маршруты с двумя пересадками
+    tr1 = []
+    tr2 = []
+    line_fixed_1 = line1
+    line_fixed_2 = line2
+    #
+    for i in trans[line1].keys():
         try:
+            tr1 = trans[line_fixed_1][i]
+            tr2 = trans[i][line_fixed_2]
+            line2, line3 = i, line_fixed_2
             line = lines[line1]
-            tr = trans[line1][line2]
-            if len(tr) != 1:
+            if len(tr1) != 1:
                 size = []
-                for j in tr:
+                for j in tr1:
                     match line[line.index(station1):line.index(j[0]) + 1:]:
                         case []:
-                            line_min_tr = line[line.index(station1):line.index(j[0]):-1]
-                            line_min_tr.append(j[1])
-                            size.append(len(line_min_tr))
+                            l = line[line.index(station1):line.index(j[0]):-1]
+                            l.append(j[0])
+                            size.append(len(l))
                         case _:
                             size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
-                print(size)
                 min_tr = size.index(min(size))
-                tr = [tr[min_tr]]
+                tr1 = [tr1[min_tr]]
+            line_ = lines[line2]
+            if len(tr2) != 1:
+                size = []
+                for j in tr2:
+                    match line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]:
+                        case []:
+                            l = line_[line_.index(tr1[0][1]):line_.index(j[0]):-1]
+                            l.append(j[0])
+                            size.append(len(l))
+                        case _:
+                            size.append(len(line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]))
+                min_tr = size.index(min(size))
+                tr2 = [tr2[min_tr]]
             # находим массив станций для 1-ой линии
             line = lines[line1]
-            match line[line.index(station1):line.index(tr[0][0]) + 1:]:
+            match line[line.index(station1):line.index(tr1[0][0]) + 1:]:
                 case []:
-                    line = line[line.index(station1):line.index(tr[0][0]):-1]
-                    line.append(tr[0][0])
+                    line = line[line.index(station1):line.index(tr1[0][0]):-1]
+                    line.append(tr1[0][0])
                 case _:
-                    line = line[line.index(station1):line.index(tr[0][0]) + 1:]
+                    line = line[line.index(station1):line.index(tr1[0][0]) + 1:]
             # находим массив станций для 2-ой линии
             line_ = lines[line2]
-            match line_[line_.index(tr[0][1]):line_.index(station2) + 1:]:
+            match line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]:
                 case []:
-                    line_ = line_[line_.index(tr[0][1]):line_.index(station2):-1]
-                    line_.append(station2)
+                    line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]):-1]
+                    line_.append(tr2[0][0])
                 case _:
-                    line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
-            line_resault.append(line + line_)
+                    line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]
+            # находим массив станций для 3-ой линии
+            line_1 = lines[line3]
+            match line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]:
+                case []:
+                    line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2):-1]
+                    line_1.append(station2)
+                case _:
+                    line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
+            line_resault.append(line + line_ + line_1)
         except KeyError:
-            pass
-        # находим все маршруты с двумя пересадками
+            continue
+    # находим все маршруты с тремя пересадками
+    try:
         tr1 = []
         tr2 = []
+        tr3 = []
         line_fixed_1 = line1
         line_fixed_2 = line2
         #
         for i in trans[line1].keys():
             try:
-                tr1 = trans[line_fixed_1][i]
-                tr2 = trans[i][line_fixed_2]
-                line2, line3 = i, line_fixed_2
-                line = lines[line1]
-                if len(tr1) != 1:
-                    size = []
-                    for j in tr1:
-                        match line[line.index(station1):line.index(j[0]) + 1:]:
+                for p in trans[i].keys():
+                    try:
+                        tr1 = trans[line_fixed_1][i]
+                        tr2 = trans[i][p]
+                        tr3 = trans[p][line_fixed_2]
+                        line2, line3, line4 = i, p, line_fixed_2
+                        line = lines[line1]
+                        if len(tr1) != 1:
+                            size = []
+                            for j in tr1:
+                                match line[line.index(station1):line.index(j[0]) + 1:]:
+                                    case []:
+                                        l = line[line.index(station1):line.index(j[0]):-1]
+                                        l.append(j[0])
+                                        size.append(len(l))
+                                    case _:
+                                        size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
+                            min_tr = size.index(min(size))
+                            tr1 = [tr1[min_tr]]
+                        line_2 = lines[line2]
+                        if len(tr2) != 1:
+                            size = []
+                            for j in tr2:
+                                match line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) + 1:]:
+                                    case []:
+                                        l = line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) - 1:-1]
+                                        l.append(j[0])
+                                        size.append(len(l))
+                                    case _:
+                                        size.append(len(line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) + 1:]))
+                            min_tr = size.index(min(size))
+                            tr2 = [tr2[min_tr]]
+                        line_3 = lines[line3]
+                        if len(tr3) != 1:
+                            size = []
+                            for j in tr3:
+                                try:
+                                    match line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) + 1:]:
+                                        case []:
+                                            l = line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) - 1:-1]
+                                            l.append(j[0])
+                                            size.append(len(l))
+                                        case _:
+                                            size.append(len(line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) + 1:]))
+                                except ValueError:
+                                    continue
+                            min_tr = size.index(min(size))
+                            tr3 = [tr3[min_tr]]
+                        # находим массив станций для 1-ой линии
+                        line_1 = lines[line1]
+                        match line_1[line_1.index(station1):line_1.index(tr1[0][0]) + 1:]:
                             case []:
-                                l = line[line.index(station1):line.index(j[0]):-1]
-                                l.append(j[0])
-                                size.append(len(l))
+                                line_1 = line_1[line_1.index(station1):line_1.index(tr1[0][0]):-1]
+                                line_1.append(tr1[0][0])
                             case _:
-                                size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
-                    min_tr = size.index(min(size))
-                    tr1 = [tr1[min_tr]]
-                line_ = lines[line2]
-                if len(tr2) != 1:
-                    size = []
-                    for j in tr2:
-                        match line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]:
+                                line_1 = line_1[line_1.index(station1):line_1.index(tr1[0][0]) + 1:]
+                        # находим массив станций для 2-ой линии
+                        line_2 = lines[line2]
+                        match line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]) + 1:]:
                             case []:
-                                l = line_[line_.index(tr1[0][1]):line_.index(j[0]):-1]
-                                l.append(j[0])
-                                print(l)
-                                size.append(len(l))
+                                line_2 = line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]):-1]
+                                line_2.append(tr2[0][0])
                             case _:
-                                size.append(len(line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]))
-                                print(line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:])
-                    print(size)
-                    min_tr = size.index(min(size))
-                    tr2 = [tr2[min_tr]]
-                # находим массив станций для 1-ой линии
-                line = lines[line1]
-                match line[line.index(station1):line.index(tr1[0][0]) + 1:]:
-                    case []:
-                        line = line[line.index(station1):line.index(tr1[0][0]):-1]
-                        line.append(tr1[0][0])
-                    case _:
-                        line = line[line.index(station1):line.index(tr1[0][0]) + 1:]
-                # находим массив станций для 2-ой линии
-                line_ = lines[line2]
-                match line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]:
-                    case []:
-                        line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]):-1]
-                        line_.append(tr2[0][0])
-                    case _:
-                        line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]
-                # находим массив станций для 3-ой линии
-                line_1 = lines[line3]
-                match line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]:
-                    case []:
-                        line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2):-1]
-                        line_1.append(station2)
-                    case _:
-                        line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-                line_resault.append(line + line_ + line_1)
+                                line_2 = line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]) + 1:]
+                        # находим массив станций для 3-ой линии
+                        line_3 = lines[line3]
+                        match line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]) + 1:]:
+                            case []:
+                                line_3 = line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]):-1]
+                                line_3.append(tr3[0][0])
+                            case _:
+                                line_3 = line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]) + 1:]
+                        # находим массив станций для 3-ой линии
+                        line_4 = lines[line4]
+                        match line_4[line_4.index(tr3[0][1]):line_4.index(station2) + 1:]:
+                            case []:
+                                line_4 = line_4[line_4.index(tr3[0][1]):line_4.index(station2):-1]
+                                line_4.append(station2)
+                            case _:
+                                line_4 = line_4[line_4.index(tr3[0][1]):line_4.index(station2) + 1:]
+                        line_resault.append(line_1 + line_2 + line_3 + line_4)
+                    except KeyError:
+                        continue
             except KeyError:
                 continue
-        # находим все маршруты с тремя пересадками
-        try:
-            tr1 = []
-            tr2 = []
-            tr3 = []
-            line_fixed_1 = line1
-            line_fixed_2 = line2
-            #
-            for i in trans[line1].keys():
-                try:
-                    for p in trans[i].keys():
-                        try:
-                            tr1 = trans[line_fixed_1][i]
-                            tr2 = trans[i][p]
-                            tr3 = trans[p][line_fixed_2]
-                            line2, line3, line4 = i, p, line_fixed_2
-                            line = lines[line1]
-                            if len(tr1) != 1:
-                                size = []
-                                for j in tr1:
-                                    match line[line.index(station1):line.index(j[0]) + 1:]:
-                                        case []:
-                                            l = line[line.index(station1):line.index(j[0]):-1]
-                                            l.append(j[0])
-                                            size.append(len(l))
-                                        case _:
-                                            size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
-                                min_tr = size.index(min(size))
-                                tr1 = [tr1[min_tr]]
-                            line_2 = lines[line2]
-                            if len(tr2) != 1:
-                                size = []
-                                for j in tr2:
-                                    match line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) + 1:]:
-                                        case []:
-                                            l = line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) - 1:-1]
-                                            l.append(j[0])
-                                            size.append(len(l))
-                                        case _:
-                                            size.append(len(line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) + 1:]))
-                                min_tr = size.index(min(size))
-                                tr2 = [tr2[min_tr]]
-                            line_3 = lines[line3]
-                            if len(tr3) != 1:
-                                size = []
-                                for j in tr3:
-                                    try:
-                                        match line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) + 1:]:
-                                            case []:
-                                                l = line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) - 1:-1]
-                                                l.append(j[0])
-                                                size.append(len(l))
-                                            case _:
-                                                size.append(len(line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) + 1:]))
-                                    except ValueError:
-                                        continue
-                                min_tr = size.index(min(size))
-                                tr3 = [tr3[min_tr]]
-                            # находим массив станций для 1-ой линии
-                            line_1 = lines[line1]
-                            match line_1[line_1.index(station1):line_1.index(tr1[0][0]) + 1:]:
-                                case []:
-                                    line_1 = line_1[line_1.index(station1):line_1.index(tr1[0][0]):-1]
-                                    line_1.append(tr1[0][0])
-                                case _:
-                                    line_1 = line_1[line_1.index(station1):line_1.index(tr1[0][0]) + 1:]
-                            # находим массив станций для 2-ой линии
-                            line_2 = lines[line2]
-                            match line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]) + 1:]:
-                                case []:
-                                    line_2 = line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]):-1]
-                                    line_2.append(tr2[0][0])
-                                case _:
-                                    line_2 = line_2[line_2.index(tr1[0][1]):line_2.index(tr2[0][0]) + 1:]
-                            # находим массив станций для 3-ой линии
-                            line_3 = lines[line3]
-                            match line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]) + 1:]:
-                                case []:
-                                    line_3 = line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]):-1]
-                                    line_3.append(tr3[0][0])
-                                case _:
-                                    line_3 = line_3[line_3.index(tr2[0][1]):line_3.index(tr3[0][0]) + 1:]
-                            # находим массив станций для 3-ой линии
-                            line_4 = lines[line4]
-                            match line_4[line_4.index(tr3[0][1]):line_4.index(station2) + 1:]:
-                                case []:
-                                    line_4 = line_4[line_4.index(tr3[0][1]):line_4.index(station2):-1]
-                                    line_4.append(station2)
-                                case _:
-                                    line_4 = line_4[line_4.index(tr3[0][1]):line_4.index(station2) + 1:]
-                            line_resault.append(line_1 + line_2 + line_3 + line_4)
-                        except KeyError:
-                            continue
-                except KeyError:
-                    continue
-        except:
-            pass
+    except:
+        pass
         # возвращаем наикратчайший маршрут
-        #return line_resault
-        return sorted(line_resault, key=lambda x: len(x))[0]
-
-    else:
-        return []
+    return line_resault
 
 
 if __name__ == '__main__':
-    print(plotting_a_route('Международная', '4A', 'Зюзино', 11))
+    print(plotting_a_route('Сокольники', 1, 'Молодёжная', 3))
