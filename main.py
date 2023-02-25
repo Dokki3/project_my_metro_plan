@@ -115,6 +115,8 @@ def main():
                     station2 += str(line2)
 
             route_ = plotting_a_route(station1, line1, station2, line2)
+            for i in route_:
+                print(i, determining_the_time(i))
             try:
                 route_.sort(key=determining_the_time)
             except TypeError:
@@ -124,9 +126,9 @@ def main():
             try:
                 time = determining_the_time(route_)
                 match line1:
-                    case 1 | 2 | 3 | 5 | 6 | 7 | 8 | '8A':
+                    case 1 | 2 | 3 | 5 | 6 | 7 | 8 | '8A' | 9 | 10 | 11 | '11A':
                         time += 2
-                    case 4 | '4A':
+                    case 4 | '4A' | 12 | 15:
                         time += 4
                 if time < 60:
                     time = f'{determining_the_time(route_)} минут'
