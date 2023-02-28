@@ -347,7 +347,7 @@ def determining_the_time(route_: list) -> int:
                     summ += data[(route_[route_.index(j) + 1], j)]
         return summ
     except KeyError:
-        return None
+        return ...
 
 
 if __name__ == '__main__':
