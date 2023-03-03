@@ -115,12 +115,9 @@ def main():
                     station2 += str(line2)
 
             route_ = plotting_a_route(station1, line1, station2, line2)
+            route_.sort(key=determining_the_time)
             for i in route_:
-                print(i, determining_the_time(i))
-            try:
-                route_.sort(key=determining_the_time)
-            except TypeError:
-                route_.sort(key=lambda x: len(x))
+                    print(i, determining_the_time(i))
             route_ = route_[0]
             # узнаём время поездки
             try:

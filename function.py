@@ -104,6 +104,7 @@ trans = {
         3: [['Киевская4', 'Киевская3'], ['Александровский сад', 'Арбатская3'], ['Кунцевская4', 'Кунцевская3']],
         '4A': [['Киевская4', 'Киевская4A']],
         5: [['Киевская4', 'Киевская5']],
+        11: [['Кунцевская4', 'Кунцевская11']],
     },
     '4A': {
         3: [['Киевская4A', 'Киевская3']],
@@ -171,7 +172,7 @@ trans = {
         1: [['Сретенский бульвар', 'Чистые пруды']],
         2: [['Зябликово', 'Красногвардейская']],
         3: [['Чкаловская', 'Курская3']],
-        5: [['Менделеевская', 'Новослободская'], ['Серпуховская', 'Добрынинская']],
+        5: [['Чкаловская', 'Курская5']],
         6: [['Сретенский бульвар', 'Тургеневская']],
         7: [['Крестьянская застава', 'Пролетарская']],
         8: [['Римская', 'Площадь Ильича']],
@@ -296,78 +297,88 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
     except KeyError:
         pass
     # находим все маршруты с двумя пересадками
-    tr1 = []
-    tr2 = []
-    line_fixed_1 = line1
-    line_fixed_2 = line2
-    #
-    for i in trans[line1].keys():
-        try:
-            tr1 = trans[line_fixed_1][i]
-            tr2 = trans[i][line_fixed_2]
-            line2, line3 = i, line_fixed_2
-            line = lines[line1]
-            if len(tr1) != 1:
-                size = []
-                for j in tr1:
-                    try:
-                        match line[line.index(station1):line.index(j[0]) + 1:]:
-                            case []:
-                                l = line[line.index(station1):line.index(j[0]):-1]
-                                l.append(j[0])
-                                size.append(len(l))
-                            case _:
-                                size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
-                    except ValueError:
-                        continue
-                min_tr = size.index(min(size))
-                tr1 = [tr1[min_tr]]
-            line_ = lines[line2]
-            if len(tr2) != 1:
-                size = []
-                for j in tr2:
-                    try:
-                        if j[1] != tr1[0][0]:
-                            match line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]:
+    try:
+        tr1 = []
+        tr2 = []
+        line_fixed_1 = line1
+        line_fixed_2 = line2
+        #
+        for i in trans[line1].keys():
+            try:
+                tr1 = trans[line_fixed_1][i]
+                tr2 = trans[i][line_fixed_2]
+                line2, line3 = i, line_fixed_2
+                line = lines[line1]
+                if len(tr1) != 1:
+                    size = []
+                    for j in tr1:
+                        try:
+                            match line[line.index(station1):line.index(j[0]) + 1:]:
                                 case []:
-                                    l = line_[line_.index(tr1[0][1]):line_.index(j[0]):-1]
+                                    l = line[line.index(station1):line.index(j[0]):-1]
                                     l.append(j[0])
                                     size.append(len(l))
+                                case None:
+                                    size.append(1)
                                 case _:
-                                    size.append(len(line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]))
-                        else:
-                            size.append(300)
-                    except ValueError:
+                                    size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
+                        except ValueError:
+                            continue
+                    min_tr = size.index(min(size))
+                    tr1 = [tr1[min_tr]]
+                else:
+                    if tr1[0][0] == tr2[0][1]:
                         continue
-                min_tr = size.index(min(size))
-                tr2 = [tr2[min_tr]]
-            # находим массив станций для 1-ой линии
-            line = lines[line1]
-            match line[line.index(station1):line.index(tr1[0][0]) + 1:]:
-                case []:
-                    line = line[line.index(station1):line.index(tr1[0][0]):-1]
-                    line.append(tr1[0][0])
-                case _:
-                    line = line[line.index(station1):line.index(tr1[0][0]) + 1:]
-            # находим массив станций для 2-ой линии
-            line_ = lines[line2]
-            match line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]:
-                case []:
-                    line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]):-1]
-                    line_.append(tr2[0][0])
-                case _:
-                    line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]
-            # находим массив станций для 3-ой линии
-            line_1 = lines[line3]
-            match line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]:
-                case []:
-                    line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2):-1]
-                    line_1.append(station2)
-                case _:
-                    line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-            line_resault.append(line + line_ + line_1)
-        except KeyError:
-            continue
+                line_ = lines[line2]
+                if len(tr2) != 1:
+                    size = []
+                    for j in tr2:
+                        try:
+                            if j[1] != tr1[0][0]:
+                                match line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]:
+                                    case []:
+                                        l = line_[line_.index(tr1[0][1]):line_.index(j[0]):-1]
+                                        l.append(j[0])
+                                        size.append(len(l))
+                                    case None:
+                                        size.append(1)
+                                    case _:
+                                        size.append(len(line_[line_.index(tr1[0][1]):line_.index(j[0]) + 1:]))
+                            else:
+                                size.append(300)
+                        except ValueError:
+                            continue
+                    min_tr = size.index(min(size))
+                    tr2 = [tr2[min_tr]]
+                # находим массив станций для 1-ой линии
+                line = lines[line1]
+                match line[line.index(station1):line.index(tr1[0][0]) + 1:]:
+                    case []:
+                        line = line[line.index(station1):line.index(tr1[0][0]):-1]
+                        line.append(tr1[0][0])
+                    case _:
+                        line = line[line.index(station1):line.index(tr1[0][0]) + 1:]
+                # находим массив станций для 2-ой линии
+                line_ = lines[line2]
+                match line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]:
+                    case []:
+                        line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]):-1]
+                        line_.append(tr2[0][0])
+                    case _:
+                        line_ = line_[line_.index(tr1[0][1]):line_.index(tr2[0][0]) + 1:]
+                # находим массив станций для 3-ой линии
+                line_1 = lines[line3]
+                match line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]:
+                    case []:
+                        line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2):-1]
+                        line_1.append(station2)
+                    case _:
+                        line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
+                line_resault.append(line + line_ + line_1)
+            except KeyError:
+                continue
+    except:
+        pass
     # находим все маршруты с тремя пересадками
     try:
         tr1 = []
@@ -394,12 +405,17 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                             l = line[line.index(station1):line.index(j[0]):-1]
                                             l.append(j[0])
                                             size.append(len(l))
+                                        case None:
+                                            size.append(1)
                                         case _:
                                             size.append(len(line[line.index(station1):line.index(j[0]) + 1:]))
                                 except ValueError:
                                     continue
                             min_tr = size.index(min(size))
                             tr1 = [tr1[min_tr]]
+                        else:
+                            if tr1[0][0] == tr2[0][1]:
+                                continue
                         line_2 = lines[line2]
                         if len(tr2) != 1:
                             size = []
@@ -411,6 +427,8 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                                 l = line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) - 1:-1]
                                                 l.append(j[0])
                                                 size.append(len(l))
+                                            case None:
+                                                size.append(1)
                                             case _:
                                                 size.append(len(line_2[line_2.index(tr1[0][1]):line_2.index(j[0]) + 1:]))
                                     else:
@@ -430,6 +448,8 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                                 l = line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) - 1:-1]
                                                 l.append(j[0])
                                                 size.append(len(l))
+                                            case None:
+                                                size.append(1)
                                             case _:
                                                 size.append(len(line_3[line_3.index(tr2[0][1]):line_3.index(j[0]) + 1:]))
                                     else:
@@ -482,4 +502,4 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
 
 
 if __name__ == '__main__':
-    print(plotting_a_route('Сокольники', 1, 'Молодёжная', 3))
+    print(plotting_a_route('Курская5', 5, 'Новослободская', 5))
