@@ -656,7 +656,7 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                 continue
     except:
         pass
-        # возвращаем наикратчайший маршрут
+    # возвращаем все вариации маршрутов
     return line_resault
 
 
