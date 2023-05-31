@@ -6,6 +6,12 @@ from func_time import determining_the_time
 from data import lines
 
 
+def get_key(val, my_dict):
+    for key, value in my_dict.items():
+        if val == value:
+            return key
+
+
 @app.route("/", methods=['POST', 'GET'])
 def main():
     line1 = 0
@@ -17,17 +23,6 @@ def main():
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
         all_station = [i[1] for i in list(lines.items())]
-        for i in all_station:
-            if input_1 in i:
-                break
-        else:
-            return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
-
-        for i in all_station:
-            if input_2 in i:
-                break
-        else:
-            return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
 
         # цвет точки у input1
         point_color = request.form['p1']
@@ -127,6 +122,22 @@ def main():
                 | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Таганская' | 'Китай-город' | 'Третьяковская'
                 | 'Авиамоторная' | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Савёловская' | 'Деловой центр'):
                     station2 += str(line2)
+
+            for i in all_station:
+                if station1 in i:
+                    if line1 == 0:
+                        line1 = get_key(i, lines)
+                    break
+            else:
+                return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
+
+            for i in all_station:
+                if station2 in i:
+                    if line2 == 0:
+                        line2 = get_key(i, lines)
+                    break
+            else:
+                return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
 
             route_ = plotting_a_route(station1, line1, station2, line2)
             route_.sort(key=determining_the_time)
