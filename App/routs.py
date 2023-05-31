@@ -1,7 +1,9 @@
 from flask import render_template, request
+
 from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
+from data import lines
 
 
 @app.route("/", methods=['POST', 'GET'])
@@ -14,6 +16,19 @@ def main():
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
+        all_station = [i[1] for i in list(lines.items())]
+        for i in all_station:
+            if input_1 in i:
+                break
+        else:
+            return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
+
+        for i in all_station:
+            if input_2 in i:
+                break
+        else:
+            return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
+
         # цвет точки у input1
         point_color = request.form['p1']
         point_color2 = request.form['p2']
