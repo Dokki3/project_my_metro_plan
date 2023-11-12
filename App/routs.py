@@ -1,9 +1,12 @@
 from flask import render_template, request
 
+import time
+
 from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
 from data import lines
+from help_functions import find_number_line
 
 
 def get_key(val, my_dict):
@@ -14,14 +17,17 @@ def get_key(val, my_dict):
 
 @app.route("/", methods=['POST', 'GET'])
 def main():
+    global list_line_result
     line1 = 0
     line2 = 0
     route_ = []
     point_color = '#ccc'
     point_color2 = '#ccc'
+    list_line_result = [0, 0, 0]
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
+        path_option = request.form['path_options_n']
         all_station = [i[1] for i in list(lines.items())]
 
         # цвет точки у input1
@@ -29,7 +35,7 @@ def main():
         point_color2 = request.form['p2']
 
         # время поездки
-        time = 0
+        time_trip = [0, 0, 0]
 
         point_colors = [point_color, point_color2]
 
@@ -141,23 +147,44 @@ def main():
 
             route_ = plotting_a_route(station1, line1, station2, line2)
             route_.sort(key=determining_the_time)
-            for i in route_:
-                print(i, determining_the_time(i))
-            route_ = route_[0]
+            #for i in route_:
+            #    print(i, determining_the_time(i))
+
+            route_min_list = [route_[0]]
+            iterat = 1
+            while len(route_min_list) != 3:
+                if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
+                    route_min_list.append(route_[iterat])
+                iterat += 1
+            #for i in route_min_list:
+            #    print(i, determining_the_time(i))
+
+            list_line_result.clear()
+            for i in route_min_list:
+                list_line_result.append(list())
+                for j in i:
+                    if find_number_line(j) not in list_line_result[-1]:
+                        list_line_result[-1].append(find_number_line(j))
+            #print(list_line_result)
+
+            route_ = route_min_list[int(path_option)]
             # узнаём время поездки
-            try:
-                time = determining_the_time(route_)
-                match line1:
-                    case 1 | 2 | 3 | 5 | 6 | 7 | 8 | '8A' | 9 | 10 | 11 | '11A':
-                        time += 2
-                    case 4 | '4A' | 12 | 15:
-                        time += 4
-                if time < 60:
-                    time = f'{determining_the_time(route_)} минут'
-                else:
-                    time = f'{time // 60} час {time % 60} минут'
-            except TypeError:
-                pass
+            time_trip.clear()
+            for i in route_min_list:
+                time_trip.append("")
+                try:
+                    time_trip[-1] = determining_the_time(i)
+                    match line1:
+                        case 1 | 2 | 3 | 5 | 6 | 7 | 8 | '8A' | 9 | 10 | 11 | '11A':
+                            time_trip[-1] += 2
+                        case 4 | '4A' | 12 | 15:
+                            time_trip[-1] += 4
+                    if time_trip[-1] < 60:
+                        time_trip[-1] = f'{time_trip[-1]} минут'
+                    else:
+                        time_trip[-1] = f'{time_trip[-1] // 60} час {time_trip[-1] % 60} минут'
+                except TypeError:
+                    pass
 
         # кнопки сброса
         if input_1 == '':
@@ -170,9 +197,14 @@ def main():
             bi2 = ''
 
         # HTML код
-
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
-                               route_=route_, time=time)
+                               route_=route_, time1=time_trip[0], time2=time_trip[1], time3=time_trip[2],
+                               path_option=path_option, list_line_result=list_line_result)
     if request.method == 'GET':
-        return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
+        return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,)
+
+
+@app.route("/history")
+def main2():
+    return render_template('index2.html', route_=[])

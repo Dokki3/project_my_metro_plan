@@ -1,11 +1,14 @@
 from functools import cache
 
+import time
+
 from data import lines, five2, trans
 
 
 # алгоритм построения маршрута НАХУЙ
 @cache
 def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str) -> list:
+    start = time.time()
     global lines, trans
     line_fixed_1 = line1
     line_fixed_2 = line2
@@ -448,7 +451,11 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                 continue
     except:
         pass
+    print(time.time() - start)
     # возвращаем все вариации маршрутов
+    for r in line_result:
+        if line_result.count(r) > 1:
+            line_result.remove(r)
     return line_result
 
 

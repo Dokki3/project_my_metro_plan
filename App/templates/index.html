@@ -105,21 +105,70 @@
                 height: 20vh;
                 background-color: red;
             }
-            .time {
-                position: relative;
-                top: 15vh;
-                width: 19vw;
-                height: 5vh;
-                font-size: 30px;
-                text-align: center;
-                padding-top: 20px;
-            }
             .selected_routes {
-                position: relative;
-                top: 20vh;
-                width: 19vw;
+                white-space: pre-line;
+                position: absolute;
+                margin-top: 3vh;
+                margin-left: 1vw;
+                width: 18vw;
                 height: 10vh;
                 text-align: center;
+                background: #F5F5F5;
+                border-radius: 30px;
+                border: 0;
+            }
+            #one {
+                top: 31vh;
+            }
+            #two {
+                top: 43vh;
+            }
+            #three {
+                top: 55vh;
+            }
+            path_options {
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                left: -100vw;
+            }
+
+            .switch {
+                position: absolute;
+                top: 3vh;
+                left: 17vw;
+                transform: translate(-50%, -50%);
+            }
+            input[type="checkbox"] {
+                position: relative;
+                width: 50px;
+                height: 25px;
+                -webkit-appearance: none;
+                outline: none;
+                background: #c6c6c6;
+                border-radius: 20px;
+                transition: .5s;
+                box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+            }
+            input:checked[type="checkbox"] {
+                background: #40e551
+            }
+            input[type="checkbox"]:before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                top: .2vh;
+                left: 0;
+                background: #fff;
+                transition: .5s;
+                transform: scale(1.1);
+                box-shadow: 0 2px 5px rgba(0,0,0,.2);
+            }
+
+            input:checked[type="checkbox"]:before {
+                left: 30px;
             }
         </style>
         <script>
@@ -276,24 +325,55 @@
             function choice_station(station){
                 document.getElementById(station).x = "50";
             }
+            function select_route(option){
+                if (option == 0) {
+                    document.getElementById("path").value = "0";
+                } else if (option == 1) {
+                    document.getElementById("path").value = "1";
+                } else if (option == 2) {
+                    document.getElementById("path").value = "2";
+                }
+            }
         </script>
     </head>
     <body>
         <div style="height: 100vh;">
             <div class="menu">
                 <form method="POST">
+
                     <input name="input_1" id="input1" class="input_control1" type="text" placeholder="откуда:" value="{{v1}}">
                     <input name="input_2" id="input2" class="input_control2" type="text" placeholder="куда:" value="{{v2}}">
                     <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p1" id="point1_check" value="{{point_color}}" type="text">
                     <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p2" id="point2_check" value="{{point_color2}}" type="text">
+                    <input style="width: 40px; height: 10px; position: absolute; left: -100vw;" name="path_options_n" id="path" value="{{path_option}}" type="text">
                     <input class="button_menu" type="submit" value="маршрут">
                     <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{bi1}}" onclick="click_button_id(1);">
                     <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{bi2}}" onclick="click_button_id(2);">
                     <div id="point1" class="point" style="background:{{point_color}}"></div>
                     <div id="point2" class="point2" style="background:{{point_color2}}"></div>
-                    {% if time != 0%}
-                        <div class="time">{{time}}</div>
+
+                    {% if time1 != 0%}
+                        <input class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
+                        {{time1}}
+                        {{list_line_result[0]}}
+                        ">
                     {% endif %}
+                    {% if time2 != 0%}
+                        <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
+                        {{time2}}
+                        {{list_line_result[1]}}
+                        ">
+                    {% endif %}
+                    {% if time3 != 0%}
+                        <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
+                        {{time3}}
+                        {{list_line_result[2]}}
+                        ">
+                    {% endif %}
+
+                    <div class="switch">
+                        <input type="checkbox">
+                    </div>
                 </form>
                 <script>
                     document.getElementById("point1").style = "background: {{point_color}}";
