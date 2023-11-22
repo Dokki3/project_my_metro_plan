@@ -17,7 +17,6 @@ def determining_the_time(route_: list) -> int:
 
 
 if __name__ == '__main__':
-    route = [['Красносельская', ]]
-    print(determining_the_time(['Сокольники', 'Красносельская']))
-    route.sort(key=determining_the_time)
-    print(route)
+    print(determining_the_time(['Перово', 'Шоссе Энтузиастов', 'Авиамоторная8', 'Площадь Ильича', 'Марксистская',
+                                'Таганская5', 'Павелецкая5', 'Добрынинская', 'Серпуховская', 'Полянка', 'Боровицкая',
+                                'Библиотека имени Ленина', 'Охотный Ряд']))

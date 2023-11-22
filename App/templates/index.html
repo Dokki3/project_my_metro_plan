@@ -352,21 +352,23 @@
                     <div id="point1" class="point" style="background:{{point_color}}"></div>
                     <div id="point2" class="point2" style="background:{{point_color2}}"></div>
 
-                    {% if time1 != 0%}
-                        <input class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
-                        {{time1}}
+                    {% if time1[0] != 0 and path_option != -1%}
+                        <input style="{{path_optioon}}" class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
+                        {{time1[0]}}
                         {{list_line_result[0]}}
                         ">
                     {% endif %}
-                    {% if time2 != 0%}
+                    {% if time1[1] != 0 and path_option != -1%}
                         <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
-                        {{time2}}
-                        {{list_line_result[1]}}
+                        {{time1[1]}}
                         ">
+                        {% if list_line_result[1][0] == 1 %}
+                            <img src="line_pictures/1_line.png">
+                        {% endif %}
                     {% endif %}
-                    {% if time3 != 0%}
+                    {% if time1[2] != 0 and path_option != -1%}
                         <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
-                        {{time3}}
+                        {{time1[2]}}
                         {{list_line_result[2]}}
                         ">
                     {% endif %}

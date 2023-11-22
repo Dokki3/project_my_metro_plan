@@ -2,6 +2,8 @@ from functools import cache
 
 import time
 
+import DateTime
+
 from data import lines, five2, trans
 
 
@@ -451,7 +453,6 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                 continue
     except:
         pass
-    print(time.time() - start)
     # возвращаем все вариации маршрутов
     for r in line_result:
         if line_result.count(r) > 1:
@@ -460,9 +461,9 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
 
 
 if __name__ == '__main__':
-    for i in plotting_a_route('', 1, '', 1):
-        print(i)
-    '''w = []
+    #for i in plotting_a_route('', 1, '', 1):
+    #    print(i)
+    w = []
     t = 0
     f = 0
     for i in lines:
@@ -484,4 +485,5 @@ if __name__ == '__main__':
                 except Exception:
                     print(False, i, j)
                     f += 1
-    print(f'True: {t}, False: {f}')'''
+    print(len(w))
+    print(f'True: {t}, False: {f}')

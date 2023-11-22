@@ -6,7 +6,7 @@ from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
 from data import lines
-from help_functions import find_number_line
+from help_functions import find_number_line, find_line_to_line, find_repeats
 
 
 def get_key(val, my_dict):
@@ -28,6 +28,7 @@ def main():
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
         path_option = request.form['path_options_n']
+        print(path_option)
         all_station = [i[1] for i in list(lines.items())]
 
         # цвет точки у input1
@@ -152,22 +153,40 @@ def main():
 
             route_min_list = [route_[0]]
             iterat = 1
-            while len(route_min_list) != 3:
-                if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
-                    route_min_list.append(route_[iterat])
-                iterat += 1
+            number_route = 3
+            while len(route_min_list) != number_route:
+                try:
+                    if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
+                        route_min_list.append(route_[iterat])
+                    iterat += 1
+                except IndexError:
+                    break
+
             #for i in route_min_list:
             #    print(i, determining_the_time(i))
 
             list_line_result.clear()
             for i in route_min_list:
-                list_line_result.append(list())
+                list_line_result.append([find_number_line(i[0])])
                 for j in i:
-                    if find_number_line(j) not in list_line_result[-1]:
+                    if find_number_line(j) != list_line_result[-1][-1]:
                         list_line_result[-1].append(find_number_line(j))
             #print(list_line_result)
 
-            route_ = route_min_list[int(path_option)]
+            integer = 0
+            while find_line_to_line(list_line_result):
+                if find_repeats(list_line_result[integer]):
+                    list_line_result.pop(integer)
+                    route_min_list.pop(integer)
+                else:
+                    integer += 1
+            #print(list_line_result)
+            #print(len(route_min_list))
+
+            try:
+                route_ = route_min_list[int(path_option)]
+            except IndexError:
+                route_ = route_min_list[0]
             # узнаём время поездки
             time_trip.clear()
             for i in route_min_list:
@@ -186,6 +205,9 @@ def main():
                 except TypeError:
                     pass
 
+            while len(time_trip) != 3:
+                time_trip.append(0)
+
         # кнопки сброса
         if input_1 == '':
             bi1 = 'display: none;'
@@ -199,12 +221,13 @@ def main():
         # HTML код
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
-                               route_=route_, time1=time_trip[0], time2=time_trip[1], time3=time_trip[2],
-                               path_option=path_option, list_line_result=list_line_result)
+                               route_=route_, time1=time_trip, path_option=path_option,
+                               list_line_result=list_line_result)
     if request.method == 'GET':
-        return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,)
+        return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,
+                               list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0])
 
 
 @app.route("/history")
-def main2():
-    return render_template('index2.html', route_=[])
+def history():
+    return render_template('history.html', route_=[])
