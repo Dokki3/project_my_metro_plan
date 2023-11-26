@@ -126,12 +126,21 @@
             #three {
                 top: 55vh;
             }
-            path_options {
+            .path_options {
                 width: 0px;
                 height: 0px;
                 position: absolute;
                 left: -100vw;
             }
+            .line_pictures {
+                position: relative;
+                width: 25px;
+                height: 25px;
+                top: 32vh;
+                left: 3vw;
+                margin-left: 2vw;
+            }
+
 
             .switch {
                 position: absolute;
@@ -362,9 +371,6 @@
                         <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
                         {{time1[1]}}
                         ">
-                        {% if list_line_result[1][0] == 1 %}
-                            <img src="line_pictures/1_line.png">
-                        {% endif %}
                     {% endif %}
                     {% if time1[2] != 0 and path_option != -1%}
                         <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
@@ -372,6 +378,12 @@
                         {{list_line_result[2]}}
                         ">
                     {% endif %}
+                    <div class="help_div_image">
+                    {% for i in range(2)%}
+                            <img class="line_pictures" src="https://sun9-73.userapi.com/impg/Plnz91sf-fUOlpmlxCClAdFEPQVbM7VNdnXPbw/bTMIiZJgNRk.jpg?size=400x400&quality=95&sign=ddde02441cf196c186689239839c5940&type=album">
+                            <img class="line_pictures" src="https://sun9-73.userapi.com/impg/Plnz91sf-fUOlpmlxCClAdFEPQVbM7VNdnXPbw/bTMIiZJgNRk.jpg?size=400x400&quality=95&sign=ddde02441cf196c186689239839c5940&type=album">
+                    {% endfor %}
+                    </div>
 
                     <div class="switch">
                         <input type="checkbox">

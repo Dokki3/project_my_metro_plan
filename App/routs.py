@@ -8,6 +8,9 @@ from func_time import determining_the_time
 from data import lines
 from help_functions import find_number_line, find_line_to_line, find_repeats
 
+from os import listdir
+from os.path import isfile, join
+
 
 def get_key(val, my_dict):
     for key, value in my_dict.items():
@@ -28,7 +31,7 @@ def main():
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
         path_option = request.form['path_options_n']
-        print(path_option)
+        # print(path_option)
         all_station = [i[1] for i in list(lines.items())]
 
         # цвет точки у input1
