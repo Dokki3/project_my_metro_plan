@@ -5,7 +5,7 @@ import time
 from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
-from data import lines
+from data import lines, pictures
 from help_functions import find_number_line, find_line_to_line, find_repeats
 
 from os import listdir
@@ -27,6 +27,7 @@ def main():
     point_color = '#ccc'
     point_color2 = '#ccc'
     list_line_result = [0, 0, 0]
+    list_line_pictures = []
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
@@ -154,6 +155,7 @@ def main():
             #for i in route_:
             #    print(i, determining_the_time(i))
 
+            # выбираем три минимальных маршрута
             route_min_list = [route_[0]]
             iterat = 1
             number_route = 3
@@ -168,13 +170,22 @@ def main():
             #for i in route_min_list:
             #    print(i, determining_the_time(i))
 
+            # создаём массив номеров линий маршрута
             list_line_result.clear()
             for i in route_min_list:
                 list_line_result.append([find_number_line(i[0])])
                 for j in i:
                     if find_number_line(j) != list_line_result[-1][-1]:
                         list_line_result[-1].append(find_number_line(j))
-            #print(list_line_result)
+
+            # создаём массив картинок для линий маршрута
+            list_line_pictures.clear()
+            for i in list_line_result:
+                list_line_pictures.append([])
+                for j in i:
+                    list_line_pictures[-1].append(pictures[j])
+            print(list_line_pictures)
+
 
             integer = 0
             while find_line_to_line(list_line_result):
@@ -225,7 +236,7 @@ def main():
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
                                route_=route_, time1=time_trip, path_option=path_option,
-                               list_line_result=list_line_result)
+                               list_line_result=list_line_result, list_line_pictures=list_line_pictures)
     if request.method == 'GET':
         return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,
                                list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0])

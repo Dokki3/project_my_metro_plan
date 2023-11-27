@@ -546,3 +546,23 @@ data = {
     ('Улица Дмитриевского', 'Лухмановская'): 1,
     ('Лухмановская', 'Некрасовка'): 2,
 }
+
+pictures = {
+    1: 'https://sun9-73.userapi.com/impg/Plnz91sf-fUOlpmlxCClAdFEPQVbM7VNdnXPbw/bTMIiZJgNRk.jpg?size=400x400&quality=95&sign=ddde02441cf196c186689239839c5940&type=album',
+    2: 'https://sun9-50.userapi.com/impg/8HIGPTX5Ek8BC1anCBz9HYHAAoG3FvxvAyNI8Q/AwPwvTabPAQ.jpg?size=400x400&quality=95&sign=83b7604ce7fbdb616e491b254e7eeef1&type=album',
+    3: 'https://sun9-78.userapi.com/impg/o1eS4135NuHWMm96FxsHufIQOoUGrbNS8Q_FKQ/n2iwkDUfXFs.jpg?size=400x400&quality=95&sign=470a9b1437e5028e78ae03f55d53c174&type=album',
+    4: 'https://sun9-66.userapi.com/impg/hEAZ6FMmZnQBGE1fWZ-yUWYwB5lQRnPuOmQ93w/CxZqO42Mx6c.jpg?size=400x400&quality=95&sign=d69a351d6d105416d8cdf3c68898bd35&type=album',
+    '4A': 'https://sun9-48.userapi.com/impg/YEaTa58DnJcb3r1eo2xNUdmL3QLjtT1EMZzOCQ/uqXIvrGsB0s.jpg?size=400x400&quality=95&sign=d868fe83d47194d68e1c0f27245472af&type=album',
+    5: 'https://sun9-24.userapi.com/impg/7oca2y3DILCbwFZJF13AYuM3e5RDXcHVCP6uIQ/qbT6kt3fjak.jpg?size=400x400&quality=95&sign=b1ad1fdadf9a11fd6813ee4797c4d120&type=album',
+    6: 'https://sun9-1.userapi.com/impg/e5Z_pKmz-d8QnJzW0xkdqct_DIFsRGmwOuQHcQ/rRKw4IuWMME.jpg?size=400x400&quality=95&sign=8928e5685717ecd9f0a41ae31345b73f&type=album',
+    7: 'https://sun9-78.userapi.com/impg/VZKQvVZBLp_NarRYyWQIWxE81MxSCQZytg9D2A/__bHsVg_Rg8.jpg?size=400x400&quality=95&sign=044f5d0e3d65a2c81fbec3b2ceb17d20&type=album',
+    8: 'https://sun9-19.userapi.com/impg/k_Wy8VkfgYHkuZ1vqWhZG8HO-OLqVST8D9We5A/LbhmkvSLDNo.jpg?size=400x400&quality=95&sign=1aeee4f52f3aebfd3dd034f5fa9015e5&type=album',
+    '8A': 'https://sun9-13.userapi.com/impg/kLBBo9r_VCBjNlbR5Vch4OugaX36It-vhJyS2g/R-c27BXhLHY.jpg?size=400x400&quality=95&sign=e1ee73aad76dceee8830e35be859967e&type=album',
+    9: 'https://sun9-48.userapi.com/impg/ds87O0Gie3utu8sjig4AKcE13rAn4kIRmJ-A6A/VgBG70Yz3ls.jpg?size=400x400&quality=95&sign=316cc4ab1c25397380b790a39a35bae1&type=album',
+    10: 'https://sun9-42.userapi.com/impg/3I8b93IKAl1BjSUCd5P-fQS05i6pK9uxM_dWJg/D4SHqeN9kT0.jpg?size=400x400&quality=95&sign=6dc906f35be52963fb01dde31da4870e&type=album',
+    11: 'https://sun9-56.userapi.com/impg/1ZBJ1Gfg_mOVnFRjMwsmVmxyCONaLfp_Nr2loA/MZoeJgLpuHI.jpg?size=400x400&quality=95&sign=05069472e956bd04741eccc0cde75f3d&type=album',
+    '11A': 'https://sun9-56.userapi.com/impg/uwunz7nrB-HqORmL0y0U6yxS6x7ULlUHjVA97g/715yVKYYHX4.jpg?size=400x400&quality=95&sign=bb580770a2b9e0c62d7ec4164f3ffb01&type=album',
+    12: 'https://sun9-75.userapi.com/impg/d70hUYbUbVj8GqXYHTiaj3Ey0dzjDSWWuEKksQ/Tq2w_L-4AGQ.jpg?size=400x400&quality=95&sign=7530895d74099624466bbd25538dbc29&type=album',
+    15: 'https://sun9-77.userapi.com/impg/Zik9aCFDS3M-_Yl0sQSJdst2XcWw5ObGPxx1vw/0EI5xFx6LwA.jpg?size=400x400&quality=95&sign=9e99c396c77056b0840237105e557277&type=album',
+
+}
