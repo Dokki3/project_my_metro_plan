@@ -564,5 +564,10 @@ pictures = {
     '11A': 'https://sun9-56.userapi.com/impg/uwunz7nrB-HqORmL0y0U6yxS6x7ULlUHjVA97g/715yVKYYHX4.jpg?size=400x400&quality=95&sign=bb580770a2b9e0c62d7ec4164f3ffb01&type=album',
     12: 'https://sun9-75.userapi.com/impg/d70hUYbUbVj8GqXYHTiaj3Ey0dzjDSWWuEKksQ/Tq2w_L-4AGQ.jpg?size=400x400&quality=95&sign=7530895d74099624466bbd25538dbc29&type=album',
     15: 'https://sun9-77.userapi.com/impg/Zik9aCFDS3M-_Yl0sQSJdst2XcWw5ObGPxx1vw/0EI5xFx6LwA.jpg?size=400x400&quality=95&sign=9e99c396c77056b0840237105e557277&type=album',
-
 }
+
+trasmitions_of_three_station = [['Кунцевская3', 'Кунцевская4', 'Кунцевская11'], ['Тверская', 'Пушкинская', 'Чеховская'],
+                                ['Чистые пруды', 'Тургеневская', 'Сретенский бульвар'],
+                                ['Курская3', 'Курская5', 'Чкаловская'], ['Таганская5', 'Таганская7', 'Марксистская'],
+                                ['Новокузнецкая', 'Третьяковская6', 'Третьяковская8'],
+                                ['Библиотека имени Ленина', 'Арбатская3', 'Александровский сад']]

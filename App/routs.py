@@ -5,7 +5,7 @@ import time
 from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
-from data import lines, pictures
+from data import lines, pictures, trasmitions_of_three_station
 from help_functions import find_number_line, find_line_to_line, find_repeats
 
 from os import listdir
@@ -178,15 +178,7 @@ def main():
                     if find_number_line(j) != list_line_result[-1][-1]:
                         list_line_result[-1].append(find_number_line(j))
 
-            # создаём массив картинок для линий маршрута
-            list_line_pictures.clear()
-            for i in list_line_result:
-                list_line_pictures.append([])
-                for j in i:
-                    list_line_pictures[-1].append(pictures[j])
-            print(list_line_pictures)
-
-
+            # удаление неправильных маршрутов
             integer = 0
             while find_line_to_line(list_line_result):
                 if find_repeats(list_line_result[integer]):
@@ -196,6 +188,28 @@ def main():
                     integer += 1
             #print(list_line_result)
             #print(len(route_min_list))
+
+            integer = 0
+            for i in route_min_list:
+                for j in trasmitions_of_three_station:
+                    count = 0
+                    for t in j:
+                        if t in i:
+                            count += 1
+                    if count > 2:
+                        route_min_list.remove(i)
+                        list_line_result.pop(integer)
+                        break
+                integer += 1
+
+            # создаём массив картинок для линий маршрута
+            list_line_pictures.clear()
+            for i in list_line_result:
+                list_line_pictures.append([])
+                for j in i:
+                    list_line_pictures[-1].append(pictures[j])
+            # print(list_line_pictures)
+
 
             try:
                 route_ = route_min_list[int(path_option)]

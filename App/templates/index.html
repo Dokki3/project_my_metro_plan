@@ -352,6 +352,9 @@
                     document.getElementById("path").value = "2";
                 }
             }
+            function checkbox(){
+                    document.getElementById("input1").value = "Водный стадион";
+            }
         </script>
     </head>
     <body>
@@ -374,37 +377,35 @@
                         <input style="{{path_optioon}}" class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
                         {{time1[0]}}
                         ">
+                        <div class="help_div_image">
+                        {% for i in list_line_pictures[0]%}
+                                <img class="line_pictures" src="{{i}}">
+                        {% endfor %}
+                        </div>
                     {% endif %}
                     {% if time1[1] != 0 and path_option != -1%}
                         <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
                         {{time1[1]}}
                         ">
+                        <div class="help_div_image">
+                        {% for i in list_line_pictures[1]%}
+                                <img class="line_pictures" src="{{i}}">
+                        {% endfor %}
+                        </div>
                     {% endif %}
                     {% if time1[2] != 0 and path_option != -1%}
                         <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
                         {{time1[2]}}
                         ">
+                        <div class="help_div_image">
+                        {% for i in list_line_pictures[2]%}
+                                <img class="line_pictures" src="{{i}}">
+                        {% endfor %}
+                        </div>
                     {% endif %}
-                    <div class="help_div_image">
-                    {% for i in list_line_pictures[0]%}
-                            <img class="line_pictures" src="{{i}}">
-                    {% endfor %}
-                    </div>
-
-                    <div class="help_div_image">
-                    {% for i in list_line_pictures[1]%}
-                            <img class="line_pictures" src="{{i}}">
-                    {% endfor %}
-                    </div>
-
-                    <div class="help_div_image">
-                    {% for i in list_line_pictures[2]%}
-                            <img class="line_pictures" src="{{i}}">
-                    {% endfor %}
-                    </div>
 
                     <div class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" onclick="checkbox()">
                     </div>
                 </form>
                 <script>
