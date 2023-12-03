@@ -2,15 +2,12 @@ from functools import cache
 
 import time
 
-import DateTime
-
 from data import lines, five2, trans
 
 
 # алгоритм построения маршрута НАХУЙ
 @cache
 def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str) -> list:
-    start = time.time()
     global lines, trans
     line_fixed_1 = line1
     line_fixed_2 = line2
