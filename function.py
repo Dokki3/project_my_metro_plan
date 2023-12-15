@@ -2,13 +2,12 @@ from functools import cache
 
 import time
 
-from data import lines, five2, trans
+from data import five2, trans
 
 
 # алгоритм построения маршрута НАХУЙ
-@cache
-def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str) -> list:
-    global lines, trans
+
+def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str, lines) -> list:
     line_fixed_1 = line1
     line_fixed_2 = line2
     line_result = []
@@ -458,7 +457,7 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
 
 
 if __name__ == '__main__':
-    #for i in plotting_a_route('', 1, '', 1):
+    #for i in plotting_a_route('Деловой центр8A', '8A', 'Физтех', 10):
     #    print(i)
     w = []
     t = 0

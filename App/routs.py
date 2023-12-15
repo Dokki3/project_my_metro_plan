@@ -5,7 +5,7 @@ import time
 from App import app
 from function import plotting_a_route
 from func_time import determining_the_time
-from data import lines, pictures, trasmitions_of_three_station
+from data import lines, lines2, pictures, trasmitions_of_three_station
 from help_functions import find_number_line, find_line_to_line, find_repeats
 
 from os import listdir
@@ -24,6 +24,7 @@ def main():
     line1 = 0
     line2 = 0
     route_ = []
+    route_full = []
     point_color = '#ccc'
     point_color2 = '#ccc'
     list_line_result = [0, 0, 0]
@@ -121,17 +122,21 @@ def main():
             station1 = input_1
             station2 = input_2
             match input_1:
-                case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Белорусская' | 'Павелецкая'
-                | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская' | 'Арбатская' | 'Курская'
-                | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Таганская' | 'Китай-город' | 'Третьяковская'
-                | 'Авиамоторная' | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Савёловская' | 'Деловой центр'):
+                case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Сокольники' | 'Белорусская'
+                      | 'Павелецкая' | 'Каширская' | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская'
+                      | 'Арбатская' | 'Курская' | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Рижская'
+                      | 'Таганская' | 'Китай-город' | 'Текстильщики' | 'Третьяковская' | 'Авиамоторная'
+                      | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Марьина Роща' | 'Савёловская' | 'Печатники'
+                      | 'Деловой центр'):
                     station1 += str(line1)
 
             match input_2:
-                case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Белорусская' | 'Павелецкая'
-                | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская' | 'Арбатская' | 'Курская'
-                | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Таганская' | 'Китай-город' | 'Третьяковская'
-                | 'Авиамоторная' | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Савёловская' | 'Деловой центр'):
+                case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Сокольники' | 'Белорусская'
+                      | 'Павелецкая' | 'Каширская' | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская'
+                      | 'Арбатская' | 'Курская' | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Рижская'
+                      | 'Таганская' | 'Китай-город' | 'Текстильщики' | 'Третьяковская' | 'Авиамоторная'
+                      | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Марьина Роща' | 'Савёловская' | 'Печатники'
+                      | 'Деловой центр'):
                     station2 += str(line2)
 
             for i in all_station:
@@ -150,11 +155,16 @@ def main():
             else:
                 return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2)
 
-            route_ = plotting_a_route(station1, line1, station2, line2)
+            route_ = plotting_a_route(station1, line1, station2, line2, lines)
+            route_2 = plotting_a_route(station1, line1, station2, line2, lines2)
+            print()
+            for i in route_2:
+                if i not in route_:
+                    route_.append(i)
             route_.sort(key=determining_the_time)
-            #for i in route_:
-            #    print(i, determining_the_time(i))
-
+            for i in route_:
+                print(i, determining_the_time(i))
+            route_full = route_
             # выбираем три минимальных маршрута
             route_min_list = [route_[0]]
             iterat = 1
@@ -179,7 +189,7 @@ def main():
                         list_line_result[-1].append(find_number_line(j))
 
             # удаление неправильных маршрутов
-            integer = 0
+            '''integer = 0
             while find_line_to_line(list_line_result):
                 if find_repeats(list_line_result[integer]):
                     list_line_result.pop(integer)
@@ -200,7 +210,7 @@ def main():
                         route_min_list.remove(i)
                         list_line_result.pop(integer)
                         break
-                integer += 1
+                integer += 1'''
 
             # создаём массив картинок для линий маршрута
             list_line_pictures.clear()
@@ -209,7 +219,6 @@ def main():
                 for j in i:
                     list_line_pictures[-1].append(pictures[j])
             # print(list_line_pictures)
-
 
             try:
                 route_ = route_min_list[int(path_option)]
@@ -246,6 +255,8 @@ def main():
         else:
             bi2 = ''
 
+        #for i in route_full:
+        #    print(i)
         # HTML код
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
@@ -259,3 +270,127 @@ def main():
 @app.route("/history")
 def history():
     return render_template('history.html', route_=[])
+
+
+@app.route("/test")
+def test():
+    all_station = [i[1] for i in list(lines.items())]
+    all_station_true = []
+    for i in all_station:
+        for j in i:
+            all_station_true.append(j)
+    for i in all_station_true:
+        for j in all_station_true:
+            if i != j:
+                input_1 = i
+                input_2 = j
+                path_option = 0
+                # print(path_option)
+
+                line1 = find_number_line(input_1)
+                line2 = find_number_line(input_2)
+
+                # маршрут
+                route_ = []
+                if input_1 == '' or input_2 == '':
+                    route_ = []
+                else:
+                    station1 = input_1
+                    station2 = input_2
+                    match input_1:
+                        case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Сокольники' | 'Белорусская'
+                              | 'Павелецкая' | 'Каширская' | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская'
+                              | 'Арбатская' | 'Курская' | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Рижская'
+                              | 'Таганская' | 'Китай-город' | 'Текстильщики' | 'Третьяковская' | 'Авиамоторная'
+                              | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Марьина Роща' | 'Савёловская' | 'Печатники'
+                              | 'Деловой центр'):
+                            station1 += str(line1)
+
+                    match input_2:
+                        case ('Проспект Вернадского' | 'Парк культуры' | 'Комсомольская' | 'Сокольники' | 'Белорусская'
+                              | 'Павелецкая' | 'Каширская' | 'Кунцевская' | 'Парк Победы' | 'Киевская' | 'Смоленская'
+                              | 'Арбатская' | 'Курская' | 'Электрозаводская' | 'Проспект Мира' | 'Октябрьская' | 'Рижская'
+                              | 'Таганская' | 'Китай-город' | 'Текстильщики' | 'Третьяковская' | 'Авиамоторная'
+                              | 'Мичуринский проспект' | 'Петровско-Разумовская' | 'Марьина Роща' | 'Савёловская' | 'Печатники'
+                              | 'Деловой центр'):
+                            station2 += str(line2)
+                    print(station1, line1, station2, line2)
+                    route_ = plotting_a_route(station1, line1, station2, line2, lines)
+                    route_2 = plotting_a_route(station1, line1, station2, line2, lines2)
+                    print()
+                    for i in route_2:
+                        if i not in route_:
+                            route_.append(i)
+                    route_.sort(key=determining_the_time)
+                    #for i in route_:
+                    #    print(i, determining_the_time(i))
+                    route_full = route_
+                    # выбираем три минимальных маршрута
+                    route_min_list = [route_[0]]
+                    iterat = 1
+                    number_route = 3
+                    while len(route_min_list) != number_route:
+                        try:
+                            if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
+                                route_min_list.append(route_[iterat])
+                            iterat += 1
+                        except IndexError:
+                            break
+
+                    # for i in route_min_list:
+                    #    print(i, determining_the_time(i))
+
+                    # создаём массив номеров линий маршрута
+                    list_line_result.clear()
+                    for i in route_min_list:
+                        list_line_result.append([find_number_line(i[0])])
+                        for j in i:
+                            if find_number_line(j) != list_line_result[-1][-1]:
+                                list_line_result[-1].append(find_number_line(j))
+
+                    # удаление неправильных маршрутов
+                    '''integer = 0
+                    while find_line_to_line(list_line_result):
+                        if find_repeats(list_line_result[integer]):
+                            list_line_result.pop(integer)
+                            route_min_list.pop(integer)
+                        else:
+                            integer += 1
+                    #print(list_line_result)
+                    #print(len(route_min_list))
+            
+                    integer = 0
+                    for i in route_min_list:
+                        for j in trasmitions_of_three_station:
+                            count = 0
+                            for t in j:
+                                if t in i:
+                                    count += 1
+                            if count > 2:
+                                route_min_list.remove(i)
+                                list_line_result.pop(integer)
+                                break
+                        integer += 1'''
+
+                    try:
+                        route_ = route_min_list[int(path_option)]
+                    except IndexError:
+                        route_ = route_min_list[0]
+
+                # кнопки сброса
+                if input_1 == '':
+                    bi1 = 'display: none;'
+                else:
+                    bi1 = ''
+                if input_2 == '':
+                    bi2 = 'display: none;'
+                else:
+                    bi2 = ''
+
+                # for i in route_full:
+                #    print(i)
+
+                # HTML код
+                return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
+                                       route_=route_, time1=[0, 0, 0], path_option=path_option,
+                                       list_line_result=list_line_result)
