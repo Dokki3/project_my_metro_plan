@@ -29,9 +29,11 @@ def main():
     point_color2 = '#ccc'
     list_line_result = [0, 0, 0]
     list_line_pictures = []
+    cb = "0"
     if request.method == 'POST':
         input_1 = request.form['input_1']
         input_2 = request.form['input_2']
+        cb = request.form['cb']
         path_option = request.form['path_options_n']
         # print(path_option)
         all_station = [i[1] for i in list(lines.items())]
@@ -261,10 +263,10 @@ def main():
         return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                point_color=point_color, point_color2=point_color2,
                                route_=route_, time1=time_trip, path_option=path_option,
-                               list_line_result=list_line_result, list_line_pictures=list_line_pictures)
+                               list_line_result=list_line_result, list_line_pictures=list_line_pictures, cb=cb)
     if request.method == 'GET':
         return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,
-                               list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0])
+                               list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0], cb="0")
 
 
 @app.route("/history")
