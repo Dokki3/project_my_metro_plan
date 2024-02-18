@@ -173,8 +173,8 @@ def main():
             number_route = 3
             while len(route_min_list) != number_route:
                 try:
-                    if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
-                        route_min_list.append(route_[iterat])
+                    #if determining_the_time(route_[iterat]) != determining_the_time(route_[iterat - 1]):
+                    route_min_list.append(route_[iterat])
                     iterat += 1
                 except IndexError:
                     break
@@ -266,7 +266,7 @@ def main():
                                list_line_result=list_line_result, list_line_pictures=list_line_pictures, cb=cb)
     if request.method == 'GET':
         return render_template('index.html', route_=route_, point_color=point_color, point_color2=point_color2,
-                               list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0], cb="0")
+                               list_line_result=list_line_result, path_option=-1, time1=[0, 0, 0], cb='0')
 
 
 @app.route("/history")
@@ -395,4 +395,4 @@ def test():
                 # HTML код
                 return render_template('index.html', v1=input_1, v2=input_2, bi1=bi1, bi2=bi2,
                                        route_=route_, time1=[0, 0, 0], path_option=path_option,
-                                       list_line_result=list_line_result)
+                                       list_line_result=list_line_result, cd='0')
