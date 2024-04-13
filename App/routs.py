@@ -274,7 +274,7 @@ def history():
     return render_template('history.html', route_=[])
 
 
-@app.route("/test")
+@app.route("/test1")
 def test():
     all_station = [i[1] for i in list(lines.items())]
     all_station_true = []
