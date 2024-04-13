@@ -190,6 +190,15 @@
             input:checked[type="checkbox"]:before {
                 left: 30px;
             }
+
+            #plan1 {
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                 -khtml-user-select: none; /* Konqueror HTML */
+                   -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none;
+            }
         </style>
         <script>
             function click_station(id, line) {
@@ -420,71 +429,16 @@
                         document.getElementById("submit").style = "background: #f6f6f6";
                     }
             }
+            document.addEventListener('scroll', (e) => {
+                   document.getElementById("plan").style.transform = `scale(${(window.scrollY * 0.01) + 0.2})`;
+                   document.getElementById("plan1").style.transform = `scale(${(window.scrollY * 0.01) + 0.2})`;
+            });
         </script>
     </head>
     <body id="body">
-        <div style="height: 100vh;">
-            <div class="menu" id="menu" style="background: #ffffff">
-                <form method="POST">
-
-                    <input name="input_1" id="input1" class="input_control1" type="text" placeholder="откуда:" value="{{v1}}">
-                    <input name="input_2" id="input2" class="input_control2" type="text" placeholder="куда:" value="{{v2}}">
-                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p1" id="point1_check" value="{{point_color}}" type="text">
-                    <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p2" id="point2_check" value="{{point_color2}}" type="text">
-                    <input style="width: 40px; height: 10px; position: absolute; left: -100vw;" name="path_options_n" id="path" value="{{path_option}}" type="text">
-                    <input class="button_menu" type="submit" value="маршрут" id="submit">
-                    <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{bi1}}" onclick="click_button_id(1);">
-                    <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{bi2}}" onclick="click_button_id(2);">
-                    <div id="point1" class="point" style="background:{{point_color}}"></div>
-                    <div id="point2" class="point2" style="background:{{point_color2}}"></div>
-                    <input name="cb" id="cb" style="position: absolute; left: -150vw;" value="{{cb}}">
-
-                    {% if time1[0] != 0 and path_option != -1%}
-                        <input class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
-                        {{time1[0]}}
-                        ">
-                        <div class="help_div_image">
-                        {% for i in list_line_pictures[0]%}
-                                <img class="line_pictures" src="{{i}}">
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-                    {% if time1[1] != 0 and path_option != -1%}
-                        <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
-                        {{time1[1]}}
-                        ">
-                        <div class="help_div_image">
-                        {% for i in list_line_pictures[1]%}
-                                <img class="line_pictures" src="{{i}}">
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-                    {% if time1[2] != 0 and path_option != -1%}
-                        <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
-                        {{time1[2]}}
-                        ">
-                        <div class="help_div_image">
-                        {% for i in list_line_pictures[2]%}
-                                <img class="line_pictures" src="{{i}}">
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-
-                    <div class="switch">
-                        <input type="checkbox" onclick="checkbox()">
-                    </div>
-                </form>
-                <script>
-                    document.getElementById("point1").style = "background: {{point_color}}";
-                    document.getElementById("point2").style = "background: {{point_color2}}";
-                </script>
-                <!--
-                <div class="selected_routes">
-                    <h3>Избранные Маршруты</h3>
-                </div> -->
-            </div>
+        <div style="height: 102vh;">
             <!-- lines -->
-            <svg width="3000px" height="4000px" style="position:absolute; left:-20vw; top: -140vh; transform: scale(0.2);">
+            <svg id="plan" width="3000px" height="4000px" style="position:absolute; left: -400px; top: -1500px; transform: scale(0.2);">
                 <!-- 5 -->
                 {% if 'Проспект Мира5' in route_ and 'Новослободская' in route_ or route_ == [] %}
                     <path id="line_with_white" stroke="#ffffff" stroke-width="8" d="M 1679.72 1527.51 A 550 550 0 0 0 1334.57 1514.78" stroke-linecap="butt" fill="none"></path>
@@ -560,10 +514,10 @@
                 {% endif %}
                 <!-- 1 -->
                 {% if 'Ольховая' in route_ and 'Коммунарка' in route_ or route_ == [] %}
-                    <line stroke="#ffffff" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none"></line>
-                    <line stroke="#da2128" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none"></line>
+                    <line  stroke="#ffffff" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none"></line>
+                    <line  stroke="#da2128" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none"></line>
                 {% else %}
-                    <line stroke="#da2128" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
+                    <line  stroke="#da2128" stroke-width="8" x1="684.87" x2="684.87" y1="3699.87" y2="3816.27" stroke-linecap="butt" fill="none" style="opacity: .1"></line>
                 {% endif %}
                 {% if 'Прокшино' in route_ and 'Ольховая' in route_ or route_ == [] %}
                     <line stroke="#ffffff" stroke-width="8" x1="684.87" x2="684.87" y1="3571.03" y2="3699.87" stroke-linecap="butt" fill="none"></line>
@@ -1803,8 +1757,8 @@
                 {% endif %}
             </svg>
             <!-- Transitions -->
-            <svg width="3000px" height="4000px" style="position:absolute; left:-20vw; top: -160vh; transform: scale(0.2); opacity: .1">
-                <!-- Охотный Театральная Площадь -->
+            <!-- <svg width="3000px" height="4000px" style="position:absolute; left:-20vw; top: -155vh; transform: scale(0.2); opacity: .1">
+                 Охотный Театральная Площадь
                 {% if route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
@@ -1812,7 +1766,7 @@
                 <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 730 479 L 730 500 A 7, 8 0 0 0 744 500 L 744 479 A 7, 8 0 0 0 730 479"></path>
                 {% endif %}
-                <!-- Проспект вернадского -->
+                 Проспект вернадского
                 {% if 'Проспект Вернадского' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                         d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
@@ -1820,7 +1774,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                         d="M 473 765 L 473 776 A 7, 8 0 0 0 487 776 L 487 765 A 7, 8 0 0 0 473 765"></path>
                 {% endif %}
-                <!-- зябликово красногвардейская -->
+                 зябликово красногвардейская
                 {% if 'Зябликово' in route_ and 'Красногвардейская' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
@@ -1828,7 +1782,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1145 861 L 1145 870 A 7, 8 0 0 0 1159 870 L 1159 861 A 7, 8 0 0 0 1145 861"></path>
                 {% endif %}
-                <!-- парк победы -->
+                 парк победы
                 {% if 'Парк Победы3' in route_ and 'Парк Победы8A' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
@@ -1836,7 +1790,7 @@
                 <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 315 647 L 315 660 A 7, 8 0 0 0 329 660 L 329 647 A 7, 8 0 0 0 315 647"></path>
                 {% endif %}
-                <!-- проспект мира -->
+                 проспект мира
                 {% if 'Проспект Мира5' in route_ and 'Проспект Мира6' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 817 331 L 817 340 A 7, 8 0 0 0 831 340 L 831 331 A 7, 8 0 0 0 817 331"></path>
@@ -1844,7 +1798,7 @@
                 <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 817 331 L 817 340 A 7, 8 0 0 0 831 340 L 831 331 A 7, 8 0 0 0 817 331"></path>
                 {% endif %}
-                <!-- новослободская менделеевская -->
+                 новослободская менделеевская
                 {% if 'Новослободская' in route_ and 'Менделеевская' in route_ or route_ == [] %}
                 <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
@@ -1852,7 +1806,7 @@
                 <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                       d="M 670 317 L 670 327 A 7, 8 0 0 0 684 327 L 684 317 A 7, 8 0 0 0 670 317"></path>
                 {% endif %}
-                <!-- полежаевская хорошёвская -->
+                 полежаевская хорошёвская
                 {% if 'Полежаевская' in route_ and 'Хорошёвская' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 406 320 A 7, 8 0 0 0 396 331 L 404 338 A 7, 8 0 0 0 415 328 L 406 320"></path>
@@ -1860,7 +1814,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 406 320 A 7, 8 0 0 0 396 331 L 404 338 A 7, 8 0 0 0 415 328 L 406 320"></path>
                 {% endif %}
-                <!-- Петровский парк Динамо -->
+                 Петровский парк Динамо
                 {% if 'Петровский парк' in route_ and 'Динамо' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 547 320 A 7, 8 0 0 0 537 331 L 546 339 A 7, 8 0 0 0 557 329 L 547 320"></path>
@@ -1868,7 +1822,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 547 320 A 7, 8 0 0 0 537 331 L 546 339 A 7, 8 0 0 0 557 329 L 547 320"></path>
                 {% endif %}
-                <!-- Белорусская -->
+                 Белорусская
                 {% if 'Белорусская2' in route_ and 'Белорусская5' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 605 369 A 7, 8 0 0 0 595 380 L 603 387 A 7, 8 0 0 0 614 377 L 605 369"></path>
@@ -1876,7 +1830,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 605 369 A 7, 8 0 0 0 595 380 L 603 387 A 7, 8 0 0 0 614 377 L 605 369"></path>
                 {% endif %}
-                <!-- Павелецкая -->
+                 Павелецкая
                 {% if 'Павелецкая2' in route_ and 'Павелецкая5' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 859 582 A 7, 8 0 0 0 849 593 L 857 600 A 7, 8 0 0 0 868 590 L 859 582"></path>
@@ -1884,7 +1838,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 859 582 A 7, 8 0 0 0 849 593 L 857 600 A 7, 8 0 0 0 868 590 L 859 582"></path>
                 {% endif %}
-                <!-- Электрозаводская -->
+                Электрозаводская
                 {% if 'Электрозаводская3' in route_ and 'Электрозаводская15' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1049 330 A 7, 8 0 0 0 1039 341 L 1048 349 A 7, 8 0 0 0 1059 339 L 1049 330"></path>
@@ -1892,7 +1846,7 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 1049 330 A 7, 8 0 0 0 1039 341 L 1048 349 A 7, 8 0 0 0 1059 339 L 1049 330"></path>
                 {% endif %}
-                <!-- Китай-город -->
+                 Китай-город
                 {% if 'Китай-город6' in route_ and 'Китай-город7' in route_ or route_ == [] %}
                     <path stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 817 470 L 817 488 A 7, 8 0 0 0 831 488 L 831 470 A 7, 8 0 0 0 817 470"></path>
@@ -1900,10 +1854,10 @@
                     <path style="opacity: .1;" stroke-width="0.5" fill="#ffffff" stroke="#000000"
                          d="M 817 470 L 817 488 A 7, 8 0 0 0 831 488 L 831 470 A 7, 8 0 0 0 817 470"></path>
                 {% endif %}
-            </svg>
+            </svg> -->
             <!-- Station -->
             <div id="stat" style="color: white;">
-            <svg width="3000px" height="4000px" style="position:absolute; left:-20vw; top: -140vh; transform: scale(0.2); opacity: 1; font-family: Gill Sans;">
+            <svg id="plan1" width="3000px" height="4000px" style="position:absolute; left: -400px; top: -1500px; transform: scale(0.2); opacity: 1; font-family: Gill Sans;">
                 <!-- 1 -->
                 {% if 'Коммунарка' in route_ or route_ == [] %}
                     <g onclick="click_station(this.id, 1);" id="Коммунарка">
@@ -5363,8 +5317,100 @@
                     </g>
                 {% endif %}
             </svg>
-            </div>
-            <!-- -->
+            <script>
+                var pl1 = document.getElementById('plan1');
+                var pl = document.getElementById('plan');
+                var listener = function(e) {
+                  pl.style.left = e.pageX - 1500 + "px";
+                  pl.style.top = e.pageY - 2000 + "px";
+                  pl1.style.left = e.pageX - 1500 + "px";
+                  pl1.style.top = e.pageY - 2000 + "px";
+                };
+
+                plan1.addEventListener('mousedown', e => {
+                    document.addEventListener('mousemove', listener);
+                });
+
+                plan1.addEventListener('mouseup', e => {
+                    document.removeEventListener('mousemove', listener);
+                });
+            </script>
+            <div class="menu" id="menu" style="background: #ffffff">
+            <form method="POST">
+
+                <input name="input_1" id="input1" class="input_control1" type="text" placeholder="откуда:" value="{{v1}}">
+                <input name="input_2" id="input2" class="input_control2" type="text" placeholder="куда:" value="{{v2}}">
+                <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p1" id="point1_check" value="{{point_color}}" type="text">
+                <input style="width: 0px; height: 0px; position: absolute; left: -100vw;" name="p2" id="point2_check" value="{{point_color2}}" type="text">
+                <input style="width: 40px; height: 10px; position: absolute; left: -100vw;" name="path_options_n" id="path" value="{{path_option}}" type="text">
+                <input class="button_menu" type="submit" value="маршрут" id="submit">
+                <input id="button_in_1" class="button_in_1" type="submit" value="" style="{{bi1}}" onclick="click_button_id(1);">
+                <input id="button_in_2" class="button_in_2" type="submit" value="" style="{{bi2}}" onclick="click_button_id(2);">
+                <div id="point1" class="point" style="background:{{point_color}}"></div>
+                <div id="point2" class="point2" style="background:{{point_color2}}"></div>
+                <input name="cb" id="cb" style="position: absolute; left: -150vw;" value="{{cb}}">
+
+                {% if time1[0] != 0 and path_option != -1%}
+                    <input class="selected_routes" id="one" onclick="select_route(0)" type="submit" value="
+                    {{time1[0]}}
+                    ">
+                    <div class="help_div_image">
+                    {% for i in list_line_pictures[0]%}
+                            <img class="line_pictures" src="{{i}}">
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                {% if time1[1] != 0 and path_option != -1%}
+                    <input class="selected_routes" id="two" onclick="select_route(1)" type="submit" value="
+                    {{time1[1]}}
+                    ">
+                    <div class="help_div_image">
+                    {% for i in list_line_pictures[1]%}
+                            <img class="line_pictures" src="{{i}}">
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                {% if time1[2] != 0 and path_option != -1%}
+                    <input class="selected_routes" id="three" onclick="select_route(2)" type="submit" value="
+                    {{time1[2]}}
+                    ">
+                    <div class="help_div_image">
+                    {% for i in list_line_pictures[2]%}
+                            <img class="line_pictures" src="{{i}}">
+                    {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="switch">
+                    <input id="cbox" type="checkbox" onclick="checkbox()">
+                </div>
+            </form>
+            <script>
+                document.getElementById("point1").style = "background: {{point_color}}";
+                document.getElementById("point2").style = "background: {{point_color2}}";
+
+                if (document.getElementById("cb").value == "1"){
+                    document.getElementById("cbox").style = "
+                        content: '';
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        top: .2vh;
+                        left: 0;
+                        background: #fff;
+                        transition: .5s;
+                        transform: scale(1.1);
+                        box-shadow: 0 2px 5px rgba(0,0,0,.2);";
+                }
+            </script>
+            <!--
+            <div class="selected_routes">
+                <h3>Избранные Маршруты</h3>
+            </div> -->
+        </div>
+        </div>
+        <!-- -->
         </div>
         <script>
             if (document.getElementById("cb").value == "1") {

@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>history</title>
+    <style>
+        img {
+          width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener('scroll', (e) => {
+          document.getElementById("imdg").style.transform = `scale(${window.scrollY / 100 + 1})`;
+        });
+    </script>
 </head>
 <body>
-ХУЙНЯ
+<img id="imdg" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" alt="cat">
 </body>
 </html>
