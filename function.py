@@ -5,7 +5,7 @@ import time
 from data import five2, trans
 
 
-# алгоритм построения маршрута НАХУЙ
+# алгоритм построения маршрута
 
 def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int or str, lines) -> list:
     line_fixed_1 = line1
