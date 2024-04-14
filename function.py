@@ -2,7 +2,7 @@ from functools import cache
 
 import time
 
-from data import five2, trans
+from data import five2, trans, lines
 
 
 # алгоритм построения маршрута
@@ -95,7 +95,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                 line_.append(station2)
                             case _:
                                 line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
-                        line_result.append(line + line_)
+                        result = line + line_
+                        for r1 in result:
+                            if result.count(r1) > 1:
+                                break
+                        else:
+                            line_result.append(result)
                     except ValueError:
                         continue
             if line2 == 5:
@@ -115,7 +120,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                 line_.append(station2)
                             case _:
                                 line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
-                        line_result.append(line + line_)
+                        result = line + line_
+                        for r1 in result:
+                            if result.count(r1) > 1:
+                                break
+                        else:
+                            line_result.append(result)
                     except ValueError:
                         continue
             else:
@@ -134,7 +144,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                         line_.append(station2)
                     case _:
                         line_ = line_[line_.index(tr[0][1]):line_.index(station2) + 1:]
-                line_result.append(line + line_)
+                result = line + line_
+                for r1 in result:
+                    if result.count(r1) > 1:
+                        break
+                else:
+                    line_result.append(result)
     except KeyError:
         pass
     # находим все маршруты с двумя пересадками
@@ -246,7 +261,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                     line_1.append(station2)
                                 case _:
                                     line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-                            line_result.append(line + line_ + line_1)
+                            result = line + line_ + line_1
+                            for r1 in result:
+                                if result.count(r1) > 1:
+                                    break
+                            else:
+                                line_result.append(result)
                         except ValueError:
                             continue
                 if line2 == 5:
@@ -274,7 +294,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                     line_1.append(station2)
                                 case _:
                                     line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-                            line_result.append(line + line_ + line_1)
+                            result = line + line_ + line_1
+                            for r1 in result:
+                                if result.count(r1) > 1:
+                                    break
+                            else:
+                                line_result.append(result)
                         except ValueError:
                             continue
                 if line3 == 5:
@@ -301,7 +326,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                     line_1.append(station2)
                                 case _:
                                     line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-                            line_result.append(line + line_ + line_1)
+                            result = line + line_ + line_1
+                            for r1 in result:
+                                if result.count(r1) > 1:
+                                    break
+                            else:
+                                line_result.append(result)
                         except ValueError:
                             continue
                 else:
@@ -328,7 +358,12 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                             line_1.append(station2)
                         case _:
                             line_1 = line_1[line_1.index(tr2[0][1]):line_1.index(station2) + 1:]
-                    line_result.append(line + line_ + line_1)
+                    result = line + line_ + line_1
+                    for r1 in result:
+                        if result.count(r1) > 1:
+                            break
+                    else:
+                        line_result.append(result)
             except KeyError:
                 continue
     except:
@@ -442,26 +477,38 @@ def plotting_a_route(station1: str, line1: int or str, station2: str, line2: int
                                 line_4.append(station2)
                             case _:
                                 line_4 = line_4[line_4.index(tr3[0][1]):line_4.index(station2) + 1:]
-                        line_result.append(line_1 + line_2 + line_3 + line_4)
+
+                        result = line_1 + line_2 + line_3 + line_4
+                        for r1 in result:
+                            if result.count(r1) > 1:
+                                break
+                        else:
+                            line_result.append(result)
                     except KeyError:
                         continue
             except KeyError:
                 continue
     except:
         pass
+    print(len(line_result))
     # возвращаем все вариации маршрутов
     for r in line_result:
         if line_result.count(r) > 1:
             line_result.remove(r)
+        else:
+            for r1 in r:
+                if r.count(r1) > 1:
+                    print(False)
     return line_result
 
 
 if __name__ == '__main__':
-    #for i in plotting_a_route('Деловой центр8A', '8A', 'Физтех', 10):
-    #    print(i)
-    w = []
+    for i in plotting_a_route('Деловой центр8A', '8A', 'Деловой центр8A', '8A', lines):
+        print(i)
+    '''w = []
     t = 0
     f = 0
+    e = 0
     for i in lines:
         for j in lines[i]:
             w.append(j)
@@ -473,13 +520,13 @@ if __name__ == '__main__':
                 st2 = [s for s in [1, 2, 3, 4, '4A', 5, 6, 7, 8, '8A', 9, 10, 11, '11A', 12, 15] if j in lines[s]]
                 st2 = st2[0]
                 try:
-                    if plotting_a_route(i, st1, j, st2) is []:
+                    if plotting_a_route(i, st1, j, st2, lines) is []:
                         e += 1
-                    plotting_a_route(i, st1, j, st2)
+                    plotting_a_route(i, st1, j, st2, lines)
                     print(True, i, j)
                     t += 1
                 except Exception:
                     print(False, i, j)
                     f += 1
-    print(len(w))
-    print(f'True: {t}, False: {f}')
+    print(len(w), e)
+    print(f'True: {t}, False: {f}')'''
